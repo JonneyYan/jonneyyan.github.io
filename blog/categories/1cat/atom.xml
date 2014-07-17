@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[CocoaBox]]></title>
-  <link href="http://JonneyYan.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 1cat | CocoaBox]]></title>
+  <link href="http://JonneyYan.github.io/blog/categories/1cat/atom.xml" rel="self"/>
   <link href="http://JonneyYan.github.io/"/>
   <updated>2014-07-17T13:17:44+08:00</updated>
   <id>http://JonneyYan.github.io/</id>
