@@ -1,23 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[CocoaBox]]></title>
-  <link href="http://JonneyYan.github.io/atom.xml" rel="self"/>
-  <link href="http://JonneyYan.github.io/"/>
-  <updated>2014-07-31T22:45:26+08:00</updated>
-  <id>http://JonneyYan.github.io/</id>
-  <author>
-    <name><![CDATA[Jonney Yan]]></name>
-    
-  </author>
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>02_CUDR  | CocoaBox</title>
+
+	<meta name="author" content="Jonney Yan">
+
+<meta name="description" content="插入（Insert） insert() 该方法会自动给文档增加一个_id键 1
+&gt;db.foo.insert({"bar" : "barz"}) batchInsert() 只能一次插入到单个集合中
+中间有错误，后面的停止插入
+可以使用continueOnError选项忽略错误, &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="CocoaBox" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="/javascripts/libs/jquery.min.js"></script>
+	
+
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">CocoaBox</a></h1>
+<span class="tagline">The road of full stack programer.</span>
+<!-- <nav id="main-nav"><ul>
+	<li><a href="/about">About</a></li>
+	<li><a href="/archives">Archives</a></li>
+	<li><a href="/contact">Contact</a></li>
+</ul>
+</nav> -->
+<!-- <nav id="mobile-nav"> -->
+<!-- 	<div class="alignleft menu"> -->
+<!-- 		<a class="button">Menu</a> -->
+<!-- 		<div class="container"><ul>
+	<li><a href="/about">About</a></li>
+	<li><a href="/archives">Archives</a></li>
+	<li><a href="/contact">Contact</a></li>
+</ul>
+</div> -->
+<!-- 	</div> -->
+<!-- </nav> -->
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<header>
+		<h2 class="title">02_CUDR</h2>
+		<div class="meta date">
+
+
+
+
+
+
+
 
   
-  <entry>
-    <title type="html"><![CDATA[02_CUDR]]></title>
-    <link href="http://JonneyYan.github.io/blog/2014/07/31/02-cudr/"/>
-    <updated>2014-07-31T22:43:45+08:00</updated>
-    <id>http://JonneyYan.github.io/blog/2014/07/31/02-cudr</id>
-    <content type="html"><![CDATA[<h1>插入（Insert）</h1>
+
+
+<time datetime="2014-07-31T22:43:45+08:00" pubdate data-updated="true">Jul 31<sup>st</sup>, 2014</time></div>
+	</header>
+	<div class="entry-content"><h1>插入（Insert）</h1>
 
 <h2>insert()</h2>
 
@@ -328,175 +378,82 @@ db.list.update({}, {&ldquo;$pop&rdquo; : {&ldquo;todo&rdquo; : &ldquo;-1&rdquo;}
 <li>非应答式写入(unacknowledged write)</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MongoDB Base]]></title>
-    <link href="http://JonneyYan.github.io/blog/2014/07/31/mongodb-base/"/>
-    <updated>2014-07-31T22:15:18+08:00</updated>
-    <id>http://JonneyYan.github.io/blog/2014/07/31/mongodb-base</id>
-    <content type="html"><![CDATA[<h1>MongoDB Base</h1>
+</div>
 
-<h2>基本概念：</h2>
+</article>
 
-<ul>
-<li><code>文档（Document）</code> 是MongoDB中的基本数据单元，与关系型数据库中的记录（行）类似，但更富表现力</li>
-<li><code>集合（Collection）</code> 可以看做拥有<code>动态模式</code>的表</li>
-<li>每个文档都有一个特殊的键<code>_id</code>，这个键是文档的唯一标识</li>
-<li>MongoDB自带一个JavaScript Shell，用于管理MongoDB</li>
-</ul>
-
-
-<h1>Document</h1>
-
-<h1>集合</h1>
-
-<h2>动态模式</h2>
-
-<h2>命名</h2>
-
-<h1>数据库</h1>
-
-<p>admin local config</p>
-
-<h1>启动MongoDB</h1>
-
-<p>$ mongod &mdash;dbpath ./  &ndash;
-port 27017</p>
-
-<h1>Shell</h1>
-
-<p>$ mongo
-db 查看当前指向哪个数据库
-use mydb 使用mydb数据库
-db.mydb.insert(a) 将a文档插入到mydb数据库中
-db.mydb.findOne() find()
-db.mydb.update()
-db.mydb.remove()</p>
-
-<h1>数据结构</h1>
-
-<h2>基本数据接口：</h2>
-
-<p>null, boolean, number, string, date, regular, array, ObjectId(), code, blob</p>
-
-<h2>日期</h2>
-
-<p>new Date()</p>
-
-<h2>数组</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;thing&quot;</span> <span class="p">:</span> <span class="p">[</span>
-</span><span class='line'>        <span class="s2">&quot;pie&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="mf">3.14</span>
-</span><span class='line'>    <span class="p">]</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>内嵌文档</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Jonney&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;address&quot;</span> <span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nt">&quot;street&quot;</span> <span class="p">:</span> <span class="s2">&quot;123 Park Street&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Anytown&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;state&quot;</span> <span class="p">:</span> <span class="s2">&quot;NY&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>_id 和 ObjectId对象</h2>
-
-<h1>Shell Tips</h1>
-
-<ul>
-<li>mongo some-host:27017/mydb</li>
-<li><p>mongo &mdash;nodb</p>
-
-<p>  >conn = new Mongo(&ldquo;some-host:27017&rdquo;)
-  &hellip;&hellip;
-  >db = conn.getDB(&ldquo;mydb&rdquo;)</p></li>
-<li>db.help, db.mydb.help, db.mydb.insert</li>
-<li>mongo script1.js script2.js</li>
-<li>>load(demo.js)</li>
-<li>run(&ldquo;ls&rdquo;, &ldquo;-la&rdquo;, &ldquo;/Users/a&rdquo;) 不能解析~</li>
-<li><p>.mongorc.js</p>
-
-<ul>
-<li>/Users/a</li>
-</ul>
+	
+	<div class="share">
+	  <!-- <ul> -->
+	  <!--   <li>
+  <a href="https://twitter.com/intent/tweet?text=02_CUDR by @&url=http://JonneyYan.github.io/blog/2014/07/31/02-cudr/" title="Share 02_CUDR on Twitter">
+    <img src="/images/social/twitter.png" />
+  </a>
 </li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">prompt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">db</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">){</span>
-</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;(nodb)&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">try</span><span class="p">{</span>
-</span><span class='line'>        <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="s2">&quot;getLastError&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">});</span>
-</span><span class='line'>    <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-</span><span class='line'>        <span class="nx">print</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">db</span> <span class="o">+</span> <span class="s2">&quot; &gt;&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li> EDITOR = &ldquo;sublime&rdquo;</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'>    <span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">books</span><span class="p">.</span><span class="nx">findOne</span><span class="p">()</span>
-</span><span class='line'>    <span class="o">&gt;</span> <span class="nx">edit</span> <span class="nx">a</span>
-</span></code></pre></td></tr></table></div></figure>
+ -->
+	  <!--   <li>
+  <a href="https://www.facebook.com/sharer.php?u=http://JonneyYan.github.io/blog/2014/07/31/02-cudr/" title="Share 02_CUDR on Facebook">
+    <img src="/images/social/facebook.png" />
+  </a>
+</li>
+ -->
+	  <!--   <li>
+  <a href="https://plus.google.com/share?url=http://JonneyYan.github.io/blog/2014/07/31/02-cudr/" title="Share 02_CUDR on Google Plus">
+    <img src="/images/social/google.png" />
+  </a>
+</li>
+ -->
+	  <!-- </ul> -->
+	</div>
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[测试数据]]></title>
-    <link href="http://JonneyYan.github.io/blog/2014/07/17/test-blogs/"/>
-    <updated>2014-07-17T12:55:55+08:00</updated>
-    <id>http://JonneyYan.github.io/blog/2014/07/17/test-blogs</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-</feed>
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner"><br>
+<br>
+<br>
+<br>
+&copy; 2014
+
+    Jonney Yan
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/hyphenator.js"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'cocoaboxs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://JonneyYan.github.io/blog/2014/07/31/02-cudr/';
+        var disqus_url = 'http://JonneyYan.github.io/blog/2014/07/31/02-cudr/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+</body>
+<script>
+  $(document).ready(function() {
+  // Make images center
+  $('p:has(img)').css('text-align', 'center');
+  });
+</script>
+</html>

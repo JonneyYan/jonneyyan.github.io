@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mongodb | CocoaBox]]></title>
+  <link href="http://JonneyYan.github.io/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://JonneyYan.github.io/"/>
+  <updated>2014-07-31T22:45:26+08:00</updated>
+  <id>http://JonneyYan.github.io/</id>
+  <author>
+    <name><![CDATA[Jonney Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB Base]]></title>
+    <link href="http://JonneyYan.github.io/blog/2014/07/31/mongodb-base/"/>
+    <updated>2014-07-31T22:15:18+08:00</updated>
+    <id>http://JonneyYan.github.io/blog/2014/07/31/mongodb-base</id>
+    <content type="html"><![CDATA[<h1>MongoDB Base</h1>
+
+<h2>基本概念：</h2>
+
+<ul>
+<li><code>文档（Document）</code> 是MongoDB中的基本数据单元，与关系型数据库中的记录（行）类似，但更富表现力</li>
+<li><code>集合（Collection）</code> 可以看做拥有<code>动态模式</code>的表</li>
+<li>每个文档都有一个特殊的键<code>_id</code>，这个键是文档的唯一标识</li>
+<li>MongoDB自带一个JavaScript Shell，用于管理MongoDB</li>
+</ul>
+
+
+<h1>Document</h1>
+
+<h1>集合</h1>
+
+<h2>动态模式</h2>
+
+<h2>命名</h2>
+
+<h1>数据库</h1>
+
+<p>admin local config</p>
+
+<h1>启动MongoDB</h1>
+
+<p>$ mongod &mdash;dbpath ./  &ndash;
+port 27017</p>
+
+<h1>Shell</h1>
+
+<p>$ mongo
+db 查看当前指向哪个数据库
+use mydb 使用mydb数据库
+db.mydb.insert(a) 将a文档插入到mydb数据库中
+db.mydb.findOne() find()
+db.mydb.update()
+db.mydb.remove()</p>
+
+<h1>数据结构</h1>
+
+<h2>基本数据接口：</h2>
+
+<p>null, boolean, number, string, date, regular, array, ObjectId(), code, blob</p>
+
+<h2>日期</h2>
+
+<p>new Date()</p>
+
+<h2>数组</h2>
+
+<p>```json
+{</p>
+
+<pre><code>"thing" : [
+    "pie",
+    3.14
+]
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>内嵌文档</h2>
+
+<p>```json
+{</p>
+
+<pre><code>"name" : "Jonney",
+"address" : {
+    "street" : "123 Park Street",
+    "city" : "Anytown",
+    "state" : "NY"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>_id 和 ObjectId对象</h2>
+
+<h1>Shell Tips</h1>
+
+<ul>
+<li>mongo some-host:27017/mydb</li>
+<li><p>mongo &mdash;nodb</p>
+
+<p>  >conn = new Mongo(&ldquo;some-host:27017&rdquo;)
+  &hellip;&hellip;
+  >db = conn.getDB(&ldquo;mydb&rdquo;)</p></li>
+<li>db.help, db.mydb.help, db.mydb.insert</li>
+<li>mongo script1.js script2.js</li>
+<li>>load(demo.js)</li>
+<li>run(&ldquo;ls&rdquo;, &ldquo;-la&rdquo;, &ldquo;/Users/a&rdquo;) 不能解析~</li>
+<li><p>.mongorc.js</p>
+
+<ul>
+<li>/Users/a</li>
+</ul>
+</li>
+</ul>
+
+
+<p>```js</p>
+
+<pre><code>prompt = function(){
+    if (typeof db == 'undefined'){
+        return '(nodb)&gt;';
+    }
+
+    try{
+        db.runCommand({"getLastError" : 1});
+    }catch (e){
+        print(e)
+    }
+    return db + " &gt;";
+}
+</code></pre>
+
+<p>```</p>
+
+<ul>
+<li> EDITOR = &ldquo;sublime&rdquo;</li>
+</ul>
+
+
+<p>```</p>
+
+<pre><code>    &gt; var a = db.books.findOne()
+    &gt; edit a
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>
