@@ -4,7 +4,7 @@
   <title><![CDATA[CocoaBox]]></title>
   <link href="http://JonneyYan.github.io/atom.xml" rel="self"/>
   <link href="http://JonneyYan.github.io/"/>
-  <updated>2014-07-31T22:45:26+08:00</updated>
+  <updated>2014-08-04T05:45:43+08:00</updated>
   <id>http://JonneyYan.github.io/</id>
   <author>
     <name><![CDATA[Jonney Yan]]></name>
@@ -70,13 +70,14 @@ db.people.update({&ldquo;id&rdquo; : ObjectId(&ldquo;1233242134sd14sf1234134ssd&
 
 <h2>修改器（Modifier）</h2>
 
-<ol>
-<li><p>$set</p></li>
-<li><p>用来指定一个字段的值，如果这个字段不存在，则创建他。</p></li>
+<h3>$set</h3>
+
+<ul>
+<li>用来指定一个字段的值，如果这个字段不存在，则创建他。</li>
 <li>可以修改字段的类型，例如将一个字段改为数组</li>
 <li>使用<code>$unset</code>删除键</li>
 <li>可以修改内嵌文档</li>
-</ol>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -105,11 +106,12 @@ db.people.update({&ldquo;id&rdquo; : ObjectId(&ldquo;1233242134sd14sf1234134ssd&
 </span><span class='line'>    )</span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
-<li><p>$inc</p></li>
-<li><p>用来增加或减少键的值，如果字段不存在，则创建它</p></li>
+<h3>$inc</h3>
+
+<ul>
+<li>用来增加或减少键的值，如果字段不存在，则创建它</li>
 <li>只能用于数值类型的值</li>
-</ol>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -122,9 +124,10 @@ db.people.update({&ldquo;id&rdquo; : ObjectId(&ldquo;1233242134sd14sf1234134ssd&
 </span><span class='line'>    )</span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
-<li><p>数组修改器</p></li>
-<li><p><code>$push</code> 向数组末尾添加一个元素</p>
+<h3>数组修改器</h3>
+
+<ul>
+<li><code>$push</code> 向数组末尾添加一个元素
 
 <ul>
 <li>$each 添加多个元素</li>
@@ -132,99 +135,120 @@ db.people.update({&ldquo;id&rdquo; : ObjectId(&ldquo;1233242134sd14sf1234134ssd&
 <li>$sort 超过$slice指定的长度时，将元素排序，并保留前xx个元素</li>
 <li>$sort 和 $slice需要配合$each使用</li>
 </ul>
+</li>
+</ul>
 
 
-<p> &#8220;`</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.foo.update(
+</span><span class='line'>        {"name" : "Jonney"},
+</span><span class='line'>        {"$push", {"friend" : {
+</span><span class='line'>            "$each" : [{"name" : "Tim", "age" : 12},
+</span><span class='line'>                       {"name" : "Jony", "age" : 21}
+</span><span class='line'>                      ],
+</span><span class='line'>            "$slice" : -10,
+</span><span class='line'>            "$sort" : {"age" : -1}
+</span><span class='line'>            }   
+</span><span class='line'>        }}
+</span><span class='line'>    )</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><p>db.foo.update(</p>
 
-<pre><code>     {"name" : "Jonney"},
-     {"$push", {"friend" : {
-         "$each" : [{"name" : "Tim", "age" : 12},
-                    {"name" : "Jony", "age" : 21}
-                   ],
-         "$slice" : -10,
-         "$sort" : {"age" : -1}
-         }   
-     }}
- )
-</code></pre>
-
-<p> &#8220;`</p></blockquote></li>
-<li><p><code>$ne</code> &amp;&amp; <code>$addToSet</code> 将数组当做数据集（set）操作</p>
+<ul>
+<li><code>$ne</code> &amp;&amp; <code>$addToSet</code> 将数组当做数据集（set）操作
 
 <ul>
 <li><code>$addToSet</code> 可以和<code>$each</code>配合使用</li>
 </ul>
+</li>
+</ul>
 
 
-<p>  &#8220;`</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.foo.update({"emails" : {"$ne" : "jony@gamil.com"}},
+</span><span class='line'>    {"$push" : {"emails" : "jony@gamil.com"}}
+</span><span class='line'>)
+</span><span class='line'>&gt;db.foo.update({"_id" : ObjectId(12df31fdf2df233f12a)},
+</span><span class='line'>    {"$addToSet" : 
+</span><span class='line'>        {"emails" : 
+</span><span class='line'>            {"$each" : ["jonney@gmail.com", "tom@gmail.com", "cook@gmail.com"]
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><p>db.foo.update({&ldquo;emails&rdquo; : {&ldquo;$ne&rdquo; : &ldquo;<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x6a;&#111;&#110;&#x79;&#x40;&#103;&#97;&#x6d;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x6a;&#x6f;&#x6e;&#x79;&#64;&#x67;&#97;&#109;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;}},</p>
 
-<pre><code>  {"$push" : {"emails" : "jony@gamil.com"}}
-</code></pre>
-
-<p>  )
-db.foo.update({&ldquo;_id&rdquo; : ObjectId(12df31fdf2df233f12a)},</p>
-
-<pre><code>  {"$addToSet" : 
-      {"emails" : 
-          {"$each" : ["jonney@gmail.com", "tom@gmail.com", "cook@gmail.com"]
-          }
-      }
-  }
-</code></pre>
-
-<p>  )
-  &#8220;`</p></blockquote></li>
-<li><p><code>$pop</code> &amp;&amp; <code>$pull</code>  删除元素</p>
+<ul>
+<li><code>$pop</code> &amp;&amp; <code>$pull</code>  删除元素
 
 <ul>
 <li><code>$pop</code> 将数组看成队列或者栈</li>
 </ul>
-
-
-<p>  &#8220;`</p>
-
-<blockquote><p>db.list.update({}, {&ldquo;$pop&rdquo; : {&ldquo;todo&rdquo; : &ldquo;1&rdquo;}})  //从数组末尾删除
-db.list.update({}, {&ldquo;$pop&rdquo; : {&ldquo;todo&rdquo; : &ldquo;-1&rdquo;}}) //从数组头部删除
-  &#8220;`</p></blockquote>
-
-<ul>
-<li><code>$pull</code> 会将数组中所有匹配的文档删除, 例如<code>[1,2,3,1,1]</code>,执行<code>pull 1</code>结果未<code>[2,3]</code></li>
+</li>
 </ul>
 
 
-<p>  &#8220;`</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.list.update({}, {"$pop" : {"todo" : "1"}})  //从数组末尾删除
+</span><span class='line'>&gt;db.list.update({}, {"$pop" : {"todo" : "-1"}}) //从数组头部删除</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><p>db.list.update({}, {&ldquo;$pull&rdquo; : {&ldquo;todo&rdquo; : &ldquo;dishes&rdquo;}})
-  &#8220;`</p></blockquote></li>
-<li><p>基于位置的数组修改器</p>
+
+<pre><code>- `$pull` 会将数组中所有匹配的文档删除, 例如`[1,2,3,1,1]`,执行`pull 1`结果为`[2,3]`
+</code></pre>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.list.update({}, {"$pull" : {"todo" : "dishes"}})</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>基于位置的数组修改器
 
 <ul>
 <li>使用数组的下标</li>
 <li>使用$定位操作符</li>
 </ul>
+</li>
+</ul>
 
 
-<p>  &#8220;`</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.bolg.update({"post" : post_id}, 
+</span><span class='line'>        {"$inc" : {"comment.0.votes" : 1}}
+</span><span class='line'>    })
+</span><span class='line'>&gt;db.blog.update({"comment.author" : "jonney"},
+</span><span class='line'>    {"$set", {"comment.$.author" : "Cook"}}
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
 
-<blockquote><p>db.bolg.update({&ldquo;post&rdquo; : post_id},</p>
 
-<pre><code>      {"$inc" : {"comment.0.votes" : 1}}
-  })
-</code></pre>
+<h3>修改器的速度</h3>
 
-<p>db.blog.update({&ldquo;comment.author&rdquo; : &ldquo;jonney&rdquo;},</p>
-
-<pre><code>  {"$set", {"comment.$.author" : "Cook"}}
-</code></pre>
-
-<p>  )
-  &#8220;`</p></blockquote></li>
-<li><p>修改器的速度</p></li>
-<li><p>Mongodb 文档的存储方式：</p>
+<ul>
+<li>Mongodb 文档的存储方式：
 
 <ul>
 <li>当文档被插入时，MongoDB会将文档依次存入硬盘
@@ -234,42 +258,45 @@ db.list.update({}, {&ldquo;$pop&rdquo; : {&ldquo;todo&rdquo; : &ldquo;-1&rdquo;}
 <li>所以，对于$inc和不发生文档变化的$set修改器，执行的速度是很快的</li>
 </ul>
 </li>
-</ol>
+</ul>
 
 
 <h2>合并 || 迁移（upsert）</h2>
 
 <ul>
-<li><p>upsert 是一种特殊的更新，如果查找到符合的文档，就会正常更新，如果没有查找到符合的文档，那么就会以查询的文档和更新文档共同创建一个新的文档。这就相当于将查询条件看成是Master， 将更新文档合并到Master上。</p>
+<li>upsert 是一种特殊的更新，如果查找到符合的文档，就会正常更新，如果没有查找到符合的文档，那么就会以查询的文档和更新文档共同创建一个新的文档。这就相当于将查询条件看成是Master， 将更新文档合并到Master上。</li>
+</ul>
 
-<p>  &#8220;`</p>
 
-<blockquote><p>db.analytics.update({&ldquo;url&rdquo; : &ldquo;/blog&rdquo;}, {&ldquo;$inc&rdquo; : {&ldquo;pageview&rdquo; : 1}}， true)
-  &#8220;`</p></blockquote>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.analytics.update({"url" : "/blog"}, {"$inc" : {"pageview" : 1}}， true)</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>- 原子操作
+</code></pre>
 
 <ul>
-<li>原子操作</li>
+<li><code>$setOnInsert</code> 只在创建字段时赋值，之后字段的值不再改变</li>
 </ul>
-</li>
-<li><p><code>$setOnInsert</code> 只在创建字段时赋值，之后字段的值不再改变</p>
 
-<p>  &#8220;`</p>
 
-<blockquote><p>db.users.update({&ldquo;$setOnInsert&rdquo; : {&ldquo;createAt&rdquo; : new Date()}}, true)
-  &#8220;`</p></blockquote></li>
-<li><p>save (shell程序)</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.users.update({"$setOnInsert" : {"createAt" : new Date()}}, true)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>save (shell程序)
 
 <ul>
 <li>如果文档不存在，创建文档并插入；</li>
 <li>如果文档存在，更新文档</li>
 </ul>
-
-
-<p>  &#8220;`</p>
-
-<blockquote><p>db.foo.save(x)
-  &#8220;`</p></blockquote></li>
+</li>
 </ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;db.foo.save(x)</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>更新多个文档</h2>
@@ -332,10 +359,169 @@ db.list.update({}, {&ldquo;$pop&rdquo; : {&ldquo;todo&rdquo; : &ldquo;-1&rdquo;}
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[MongoDB Base]]></title>
+    <title type="html"><![CDATA[01_MongoDB Base]]></title>
     <link href="http://JonneyYan.github.io/blog/2014/07/31/mongodb-base/"/>
     <updated>2014-07-31T22:15:18+08:00</updated>
     <id>http://JonneyYan.github.io/blog/2014/07/31/mongodb-base</id>
+    <content type="html"><![CDATA[<h1>MongoDB Base</h1>
+
+<h2>基本概念：</h2>
+
+<ul>
+<li><code>文档（Document）</code> 是MongoDB中的基本数据单元，与关系型数据库中的记录（行）类似，但更富表现力</li>
+<li><code>集合（Collection）</code> 可以看做拥有<code>动态模式</code>的表</li>
+<li>每个文档都有一个特殊的键<code>_id</code>，这个键是文档的唯一标识</li>
+<li>MongoDB自带一个JavaScript Shell，用于管理MongoDB</li>
+</ul>
+
+
+<h1>Document</h1>
+
+<h1>集合</h1>
+
+<h2>动态模式</h2>
+
+<h2>命名</h2>
+
+<h1>数据库</h1>
+
+<p>admin local config</p>
+
+<h1>启动MongoDB</h1>
+
+<p>$ mongod &mdash;dbpath ./  &ndash;
+port 27017</p>
+
+<h1>Shell</h1>
+
+<p>$ mongo
+db 查看当前指向哪个数据库
+use mydb 使用mydb数据库
+db.mydb.insert(a) 将a文档插入到mydb数据库中
+db.mydb.findOne() find()
+db.mydb.update()
+db.mydb.remove()</p>
+
+<h1>数据结构</h1>
+
+<h2>基本数据接口：</h2>
+
+<p>null, boolean, number, string, date, regular, array, ObjectId(), code, blob</p>
+
+<h2>日期</h2>
+
+<p>new Date()</p>
+
+<h2>数组</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;thing&quot;</span> <span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;pie&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="mf">3.14</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>内嵌文档</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Jonney&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;address&quot;</span> <span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;street&quot;</span> <span class="p">:</span> <span class="s2">&quot;123 Park Street&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Anytown&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;state&quot;</span> <span class="p">:</span> <span class="s2">&quot;NY&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>_id 和 ObjectId对象</h2>
+
+<h1>Shell Tips</h1>
+
+<ul>
+<li>mongo some-host:27017/mydb</li>
+<li><p>mongo &mdash;nodb</p>
+
+<p>  >conn = new Mongo(&ldquo;some-host:27017&rdquo;)
+  &hellip;&hellip;
+  >db = conn.getDB(&ldquo;mydb&rdquo;)</p></li>
+<li>db.help, db.mydb.help, db.mydb.insert</li>
+<li>mongo script1.js script2.js</li>
+<li>>load(demo.js)</li>
+<li>run(&ldquo;ls&rdquo;, &ldquo;-la&rdquo;, &ldquo;/Users/a&rdquo;) 不能解析~</li>
+<li><p>.mongorc.js</p>
+
+<ul>
+<li>/Users/a</li>
+</ul>
+</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">prompt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">db</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;(nodb)&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">try</span><span class="p">{</span>
+</span><span class='line'>        <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="s2">&quot;getLastError&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>        <span class="nx">print</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">db</span> <span class="o">+</span> <span class="s2">&quot; &gt;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li> EDITOR = &ldquo;sublime&rdquo;</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'>    <span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">books</span><span class="p">.</span><span class="nx">findOne</span><span class="p">()</span>
+</span><span class='line'>    <span class="o">&gt;</span> <span class="nx">edit</span> <span class="nx">a</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[01_MongoDB Base]]></title>
+    <link href="http://JonneyYan.github.io/blog/2014/07/31/01_mongodb-base/"/>
+    <updated>2014-07-31T22:15:18+08:00</updated>
+    <id>http://JonneyYan.github.io/blog/2014/07/31/01_mongodb-base</id>
     <content type="html"><![CDATA[<h1>MongoDB Base</h1>
 
 <h2>基本概念：</h2>
