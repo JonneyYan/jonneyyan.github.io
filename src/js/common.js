@@ -1,6 +1,6 @@
 $(document).ready(function(e) {
-	var beginX,
-		beginY;
+	var beginX = 0,
+		beginY = 0;
 	/***设备选择提示***/
 	$(function(){
 		var bd = $(document.body);
