@@ -28,8 +28,8 @@ $(document).ready(function(e) {
 
 	/******背景移动******/
 	function motion(event){
-		var x = Math.sin(event.gamma * Math.PI / 180) * 20;
-		var y = Math.sin(event.beta * Math.PI / 180) * 20;
+		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 20);
+		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 20);
 		beginX = x - beginX;
 		beginY = y - beginY;
 		// $(".shift").each(function() {
