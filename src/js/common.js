@@ -28,10 +28,10 @@ function motion(event){
 	var x = Math.sin(event.gamma * Math.PI / 180) * 20;
 	var y = Math.sin(event.beta * Math.PI / 180) * 20;
 
-	$(".shift").each(function() {
-		var beginX = $(this).css("left");
-		$(this).css("left", beginX + "px");
-	});
+	// $(".shift").each(function() {
+	// 	var beginX = $(this).css("left");
+	// 	$(this).css("left", beginX + "px");
+	// });
 	$("aris-x").html(x);
 	$("aris-y").html(y);
 
