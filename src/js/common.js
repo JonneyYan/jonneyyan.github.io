@@ -38,6 +38,6 @@ $(document).ready(function(e) {
 		// });
 		$("#aris-x").html(beginX);
 		$("#aris-y").html(beginY);
-		$(".devconsole").css("left", beginX + $(".devconsole").css("left")  + "px");
+		$(".devconsole").css("left", beginX + $(".devconsole").css("right")  + "px");
 	}
 });
