@@ -32,11 +32,12 @@ $(document).ready(function(e) {
 		var y = Math.sin(event.beta * Math.PI / 180) * 20;
 		beginX = x - beginX;
 		beginY = y - beginY;
-		$(".shift").each(function() {
-			var left = $(this).css("left");
-			$(this).css("left", left + "px");
-		});
+		// $(".shift").each(function() {
+		// 	var left = $(this).css("left");
+		// 	$(this).css("left", left + "px");
+		// });
 		$("#aris-x").html(beginX);
 		$("#aris-y").html(beginY);
+		$(".devconsole").css("left", beginX + $(".devconsole").css("left")  + "px");
 	}
 });
