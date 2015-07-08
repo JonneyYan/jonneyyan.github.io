@@ -32,7 +32,7 @@ function motion(event){
 	// 	var beginX = $(this).css("left");
 	// 	$(this).css("left", beginX + "px");
 	// });
-	$("aris-x").html(x);
-	$("aris-y").html(y);
+	$("#aris-x").html(x);
+	$("#aris-y").html(y);
 
 }
