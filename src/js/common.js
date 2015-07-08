@@ -27,18 +27,12 @@ window.addEventListener("deviceorientation", motion);
 function motion(event){
 	var x = Math.sin(event.gamma * Math.PI / 180) * 20;
 	var y = Math.sin(event.beta * Math.PI / 180) * 20;
-	// beginX = beginX + x;
-		 
-	// var picW = $(".P1_0").width();
-	// var screenW = $(".page1").width();
-	// if(beginX > 0)
-	// 	beginX = 0;
-	// else if(beginX < screenW - picW)
-	// 	beginX = screenW - picW;
-		
-	// $(".P1_0").css("left", beginX + "px");
+
 	$(".shift").each(function() {
-		
-	};)
-	 
+		var beginX = $(this).css("left");
+		$(this).css("left", beginX + "px");
+	});
+	$("aris-x").html(x);
+	$("aris-y").html(y);
+
 }
