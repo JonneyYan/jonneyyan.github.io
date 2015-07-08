@@ -18,6 +18,8 @@ $(function(){
 		}
 	}
 	$(window).on('load',_orientationchange);
+	$("#aris-x").html("aaa");
+	$("#aris-y").html("bbb");
 });
 
 /***添加视察效果***/
