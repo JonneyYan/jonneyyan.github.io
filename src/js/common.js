@@ -19,20 +19,24 @@ $(document).ready(function(e) {
 		"#p4-6"
 	];
 	loadImage(imgResource, function(){		
-		$(".onload").remove();
+		$(".onload").addClass("removeOnload");
 
-		new PageSlide({
-        pages: $('.page-wrap .page'),
-	        gestureFollowing: true,
-	        onchange: function(i) {
-	            ;
-	        },
-	        // dev: 2
-	    });
-	    $(".page").first().addClass("bigShake");
+		setTimeout(function(){
+			new PageSlide({
+	        pages: $('.page-wrap .page'),
+		        gestureFollowing: true,
+		        onchange: function(i) {
+		            ;
+		        },
+		        // dev: 2
+		    });
+			$(".page").first().addClass("bigShake");
+		}, 500);
+		
+	    
 	    setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
-		}, 800);
+		}, 2000);
 	});
 	/***加载图片***/
 	function loadImage(resource, callback){

@@ -14,12 +14,12 @@ html, body {
     clear: both;
 }
 .bigShake{
-    -webkit-animation:bigShake 0.5s 0.3s both;
+    -webkit-animation:bigShake 1s 0.3s infinite both;
 }
 .onload {
     width: 100%;
     height: 100%;
-    background-color: rgba(157, 157, 157, 0.96);
+    background-color: rgba(50, 50, 50, 0.96);
     position: absolute;
     z-index: 10000;
 }
@@ -28,8 +28,8 @@ html, body {
     top: 50%;
     left: 50%;
 }
-.loading > .loader-inner>div {
-    background: orange;
+.loading > .loader-inner > div {
+    border-color: orange;
 }
 .rate {
     position: absolute;
@@ -37,8 +37,11 @@ html, body {
     color: orange;
     top: 60%;
     left: 50%;
-    width: 100px;
-    margin-left: -50px;
+    width: 200px;
+    margin-left: -100px;
+}
+.removeOnload {
+    -webkit-animation:fideOut 1s ease-in-out both;
 }
 /* common */
 .page-wrap {
@@ -448,6 +451,7 @@ a.page1-download {
 }
 /* 动画 */
 /******震动******/
+
 @-webkit-keyframes bigShake{
   0%{
     background-position: 70% 50%;
@@ -483,6 +487,19 @@ a.page1-download {
     background-position: 70% 50%;
   }
 }
+/*淡出*/
+@-webkit-keyframes fideOut {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.5, 0.5);
+    }
+}
+
 /*上滑提示*/
 @-webkit-keyframes swipeMoveTop {
     0% {
