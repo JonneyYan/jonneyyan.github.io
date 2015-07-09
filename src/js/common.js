@@ -1,6 +1,27 @@
 $(document).ready(function(e) {
+	var imgs = [
+		"#p1-1",
+		"#p1-2",
+		"#p1-3",
+		"#p1-4",
+		"#p2-1",
+		"#p2-2",
+		"#p2-3",
+		"#p2-4",
+		"#p2-5",
+		"#p2-6",
+		"#p4-1",
+		"#p4-2",
+		"#p4-3",
+		"#p4-4",
+		"#p4-5",
+		"#p4-6"
+	];
+
 	var beginX = 0,
-		beginY = 0;
+		beginY = 0,
+		bufferX = 0,
+		bufferY = 0;
 	/***设备选择提示***/
 	$(function(){
 		var bd = $(document.body);
@@ -28,15 +49,29 @@ $(document).ready(function(e) {
 
 	/******背景移动******/
 	function motion(event){
-		var x = Math.sin(event.gamma * Math.PI / 180) * 20;
-		var y = Math.sin(event.beta * Math.PI / 180) * 20;
-		beginX = x - beginX;
-		beginY = y - beginY;
-		$(".shift").each(function() {
-			var left = $(this).css("left");
-			$(this).css("left", left + "px");
-		});
-		$("#aris-x").html(beginX);
-		$("#aris-y").html(beginY);
+		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 20);
+		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 50);
+		
+		if (bufferX === 0 && bufferY === 0) {
+			bufferX = x;
+			bufferY = y;
+		}else{
+			beginX += x - bufferX;
+			beginY += y - bufferY;
+
+			if (beginX < 20 && beginX > -20 && beginY < 20 && beginY > -20){
+				var offsetX;
+				for (var i = imgs.length - 1; i >= 0; i--) {
+					offsetX = beginX + parseInt($(imgs[i]).css("left"));
+					offsetY = beginY + parseInt($(imgs[i]).css("top"));
+					$(imgs[i]).css("transform", "translate(" + offsetX + "px," + offsetY + "px)");
+				};			
+			}else {
+				beginX -= x - bufferX;
+				beginY -= y - bufferY;
+			}
+			bufferX = x;
+			bufferY = y;
+		}
 	}
 });
