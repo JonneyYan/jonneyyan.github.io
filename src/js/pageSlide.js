@@ -201,12 +201,10 @@
             //设置动画缓动
             this._setTransition();
 
-            pageOffset = this.direction === 'v' ? pageHeight / 2 : pageWidth / 2;
-
             //swipeDown
             if (distance > 0) {
                 if (!lockPrev) {
-                    if (distance > pageOffset) {
+                    if (distance > 20) {
                         this.prev();
                     } else {
                         this.moveTo(this.index);
@@ -215,7 +213,7 @@
 
             } else {
                 if (!lockNext) {
-                    if (distance < -pageOffset) {
+                    if (distance < -20) {
                         this.next();
                     } else {
                         this.moveTo(this.index);

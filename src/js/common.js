@@ -42,7 +42,7 @@ $(document).ready(function(e) {
 	/***加载图片***/
 	function loadImage(resource, callback){
 		preloadImage(resource, function(percent){
-			$('.percent').text(percent);
+			// $('.percent').text(percent);
 			if(percent == 100){
 				callback();
 			}
@@ -109,8 +109,8 @@ $(document).ready(function(e) {
 			if (beginX < 20 && beginX > -20 && beginY < 20 && beginY > -20){
 				var offsetX;
 				for (var i = imgs.length - 1; i >= 0; i--) {
-					offsetX = beginX + parseInt($(imgs[i]).css("left"));
-					offsetY = beginY + parseInt($(imgs[i]).css("top"));
+					offsetX = beginX;
+					offsetY = beginY;
 					$(imgs[i]).css("transform", "translate(" + offsetX + "px," + offsetY + "px)");
 				};			
 			}else {
