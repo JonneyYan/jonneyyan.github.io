@@ -39,7 +39,8 @@ html, body {
 
 .page:first-child {
     background: url(../img/bg_1.jpg) no-repeat;
-    background-size: 100% 100%;
+    background-size: auto 100%;
+    background-position: 69% center;
 }
 
 .page:nth-child(2) {
@@ -64,11 +65,11 @@ html, body {
     position: absolute;
     left: 50%;
     bottom: 20px;
-    width: 104px;
-    height: 84px;
-    margin-left: -52px;
+    width: 51px;
+    height: 42px;
+    margin-left: -26px;
     background: url(../img/arrow.png) no-repeat;
-    background-size: 104px auto;
+    background-size: 51px auto;
     opacity: 0;
 }
 .current .arrow {
@@ -91,20 +92,32 @@ html, body {
     position: absolute;
     bottom: 0;
 }
+.slogan {
+    width: 100%;
+    height: 40%;
+    bottom: 30%;
+    position: absolute;
+}
+.slogan0, .slogan1, .slogan2 {
+    background-size: 100% auto;
+}
+.slogan0 {
+    width: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
 .slogan1 {
-    width: 170%;
-    top: 50%;
-    left: -60px;
+    width: 100%;
+    top: 50px;
+    left: 0;
     margin-top: -100px;
-    transform: rotate(-20deg);
     position: absolute;
 }
 .slogan2 {
     width: 60%;
-    top: 70%;
-    left: 40%;
-    margin-top: -100px;
-    transform: rotate(-20deg);
+    top: 63px;
+    right: 0;
     position: absolute;
 }
 /* page 2 */
@@ -223,6 +236,9 @@ html, body {
     width: 93px;
     margin: 10px;
 }
+.tabs {
+    padding: 0 10px;
+}
 .tabs li {
     float: left;
     width: 25%;
@@ -240,7 +256,7 @@ li.tab4 {
     background-position: 102% 0;
 }
 li.tab-active {
-    background-position-y: 100%;
+    background-position-y: 102%;
 }
 .radar {
     position: absolute;
@@ -276,7 +292,7 @@ li.tab-active {
     float: left;
     text-align: center;
     color: white;
-    font-size: 12px;
+    font-size: 9px;
     padding: 2%;
 }
 .skill img{
@@ -322,10 +338,22 @@ img.page4-footer {
     width: 50%;
     margin: 3% auto;
 }
-img.download {
+a.download {
     width: 70%;
     display: block;
-    margin: 3% auto;
+    background: url(../img/download_normal.png);
+    background-size: 100% auto;
+    margin: auto;
+}
+a.download:active {
+    background: url(../img/download_active.png);
+    background-size: 100% auto;
+}
+a.page1-download {
+    position: absolute;
+    bottom: 15%;
+    margin-left: 15%;
+    z-index: 1001;
 }
 #p4-1 {
     top: -6%;
@@ -417,21 +445,21 @@ img.download {
 
 @-webkit-keyframes slideToLeft {
     0% {
-        -webkit-transform: translate3d(70%, -100px, 0) rotate(-20deg);
+        -webkit-transform: translate3d(170%, 0, 0);
 
     }
     100% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
+        -webkit-transform: translate3d(0, 0, 0);
     }
 }
 
 @-webkit-keyframes slideToRight{
     0% {
-        -webkit-transform: translate3d(-100px, 100px, 0) rotate(-20deg);
+        -webkit-transform: translate3d(-100%, 0, 0);
 
     }
     100% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
+        -webkit-transform: translate3d(0, 0, 0);
     }
 }
 @-webkit-keyframes slideToTop {
@@ -442,5 +470,13 @@ img.download {
     100% {
         opacity: 1;
         -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes moveOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

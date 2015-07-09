@@ -12,27 +12,43 @@
     <!--custom style-->
     <style>
         /* 给元素绑定动画 */
-        .slogan1{
-            -webkit-animation: slideToRight 1s ease-in-out 0.5s both;
+        .current .slogan1{
+            -webkit-animation: slideToRight 1s ease-in-out  both;
         }
-        .slogan2{
-            -webkit-animation: slideToLeft 1s ease-in-out 0.5s both;
+        .current .slogan2{
+            -webkit-animation: slideToLeft 1s ease-in-out  both;
         }
-        .page2-text {
+        .current .slogan0{
+            -webkit-animation: slideToLeft 1s ease-in-out  both;
+        }
+        .current .page2-text {
+            -webkit-animation: slideToTop 1s ease-in-out both;
+        }
+        .current .ren {
             -webkit-animation: slideToTop 1s ease-in-out 0.5s both;
         }
-        .ren {
-            -webkit-animation: slideToTop 1s ease-in-out 0.5s both;
+        .current .page4-text {
+            -webkit-animation: slideToTop 1s ease-in-out both;
+        }
+        .current .download {
+            -webkit-animation: slideToTop 1s cubic-bezier(0, 0, 0.2, 1)  both;
+        }
+        .current .shift {
+            -webkit-animation: moveOut 1s cubic-bezier(0, 0, 0.2, 1)  both;
         }
     </style>
 </head>
 <body>
 <div class="page-wrap">
     <div class="page">
-        <img class="ren" src="src/img/ren.png" />
         <img class="logo" src="src/img/logo.png" />
-        <img class="slogan1" src="src/img/slogan_1.png" />
-        <img class="slogan2" src="src/img/slogan_2.png" />
+        <div class="slogan">
+            <img class="slogan0" src="src/img/text1.png" />
+            <img class="slogan1" src="src/img/text.png" />
+            <img class="slogan2" src="src/img/text2.png" />
+        </div>
+        
+        <a class="download page1-download" href="javascript:void(0)"></a>
         <div class="arrow"></div>
         <img class="shift" id="p1-1" src="src/img/p1_1.png">
         <img class="shift" id="p1-2" src="src/img/p1_2.png">
@@ -255,7 +271,7 @@
             <img class="zbxq" src="src/img/zbxq.jpg" />
         </div>
         <img class="page4-footer" src="src/img/page_4_footer.png" />
-        <img class="download" src="src/img/download.png" />
+        <a class="download" href="javascript:void()"></a>
         <img class="shift" id="p4-1" src="src/img/p4_1.png">
         <img class="shift" id="p4-2" src="src/img/p4_2.png">
         <img class="shift" id="p4-3" src="src/img/p4_3.png">
@@ -286,9 +302,9 @@
         pages: $('.page-wrap .page'),
         gestureFollowing: true,
         onchange: function(i) {
-            console.log(this);
+            ;
         },
-        // dev: 3
+        dev: 2
     });
     
 
@@ -303,6 +319,9 @@
 
         var tabHeight = $(".tabs li").width() * (114 / 240.0);
         $(".tabs li").height(tabHeight);
+
+        var downloadHeight = $(".download").width() * (159 / 504) - 1;
+        $(".download").height(downloadHeight);
 
     }
     resize();
@@ -376,6 +395,11 @@
         });
     });
     
+    // $(".download").on("touchstart", function() {
+    //     $(this).attr("src", "src/img/download_active.png");
+    // }).on("touchend", function() {
+    //     $(this).attr("src", "src/img/download_normal.png");
+    // });
 </script>
 </body>
 </html>
