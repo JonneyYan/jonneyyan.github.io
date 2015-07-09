@@ -29,9 +29,9 @@ $(document).ready(function(e) {
 	        },
 	        // dev: 2
 	    });
-	    $(".page").addClass("bigShake");
+	    $(".page").first().addClass("bigShake");
 	    setTimeout(function(){
-			$(".page").removeClass("bigShake");
+			$(".page").first().removeClass("bigShake");
 		}, 800);
 	});
 	/***加载图片***/
