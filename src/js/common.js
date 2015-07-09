@@ -36,6 +36,7 @@ $(document).ready(function(e) {
 	    
 	    setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
+			$(".onload").remove();
 		}, 2000);
 	});
 	/***加载图片***/
