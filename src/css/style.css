@@ -328,8 +328,8 @@ img.download {
     margin: 3% auto;
 }
 #p4-1 {
-    top: 3%;
-    right: 0;
+    top: -6%;
+    left: 60%;
 }
 #p4-2 {
     top: -2%;
@@ -343,59 +343,60 @@ img.download {
     z-index: -1;
 }
 #p4-4 {
-    bottom: 13%;
-    left: 32%;
+    top: 38%;
+    left: 17%;
 }
 #p4-5 {
-    bottom: 6%;
+    top: 49%;
+    left: -5%;
 }
 #p4-6 {
-    right: 0;
-    bottom: 0;
+    top: 59%;
+    left: 81%;
 }
 
 #p2-1 {
-    top: 0;
+    top: -30%;
     left: 6%;
 }
 #p2-2 {
-    top: 19%;
+    top: 5%;
     left: 0;
     z-index: -1;
 }
 #p2-3 {
-    top: 37%;
-    right: 0;
+    top: 20%;
+    left: 90%;
 }
 #p2-4 {
-    top: 49%;
-    left: 5%;
+    top: 44%;
+    left: -17%;
 }
 #p2-5 {
-    bottom: 0;
+    top: 50%;
     left: 0;
     z-index: -1;
 }
 #p2-6 {
-    right: 0;
-    bottom: 15%;
+    top: 60%;
+    left: 60%;
     z-index: -1;
 }
 #p1-1 {
-    top: 10%;
-    left: 58%;
+    top: 5%;
+    left: 48%;
 }
 #p1-2 {
-    top: 29%;
-    left: 18%;
+    top: 20%;
+    left: 10%;
 }
 #p1-3 {
-    top: 51%;
+    top: 40%;
     left: 1%; 
 }
 #p1-4 {
-    top: 40%;
-    left: 51%;
+    top: 30%;
+    left: 41%;
 }
 /* 动画 */
 /*上滑提示*/
