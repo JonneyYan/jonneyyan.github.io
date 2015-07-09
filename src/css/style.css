@@ -62,7 +62,7 @@ html, body {
 .page:first-child {
     background: url(../img/bg_1.jpg) no-repeat;
     background-size: auto 100%;
-    background-position: 70% 50%;
+    background-position: 90% 50%;
 }
 
 .page:nth-child(2) {
