@@ -70,7 +70,7 @@
             <div class="slide" id="slide1">
                 <ul>
                     <li>
-                        <img src="src/img/slider_1.jpg">
+                        <img src="src/img/slider_1.png">
                     </li>
                     <li>
                         <img src="src/img/slider_1.png">
@@ -280,7 +280,7 @@
         <img class="shift" id="p4-6" src="src/img/p4_6.png">
     </div>
 </div>
-
+<div class="percent">123</div>
 <script src="src/js/pageSlide.js"></script>
 <script src="src/js/common.js"></script>
 <script src="src/js/swipeSlide.min.js"></script>
@@ -298,14 +298,7 @@
     $(".btn-prev").on("tap", function() {
         sliderTab.goTo('prev');
     });
-    new PageSlide({
-        pages: $('.page-wrap .page'),
-        gestureFollowing: true,
-        onchange: function(i) {
-            ;
-        },
-        dev: 2
-    });
+    
     
 
     $(window).bind('resize', resize);

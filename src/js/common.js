@@ -1,4 +1,5 @@
 $(document).ready(function(e) {
+	var imgResource = ["bg_1.jpg", "bg_2.jpg", "bg_3.jpg", "bg_4.jpg"];
 	var imgs = [
 		"#p1-1",
 		"#p1-2",
@@ -17,6 +18,43 @@ $(document).ready(function(e) {
 		"#p4-5",
 		"#p4-6"
 	];
+	loadImage(imgResource, function(){		
+		$(".load").addClass("load_fadeOut");
+
+		new PageSlide({
+        pages: $('.page-wrap .page'),
+	        gestureFollowing: true,
+	        onchange: function(i) {
+	            ;
+	        },
+	        // dev: 2
+	    });
+	});
+	/***加载图片***/
+	function loadImage(resource, callback){
+		preloadImage(resource, function(percent){
+			$('.percent').text(percent);
+			if(percent == 100){
+				callback();
+			}
+		});
+	}
+
+
+	/***预加载图片函数***/
+	function preloadImage(imgs, callback){
+		var count = imgs.length;
+		var num = 0;
+		callback(num);
+		for(var i = 0; i < count; i++){
+			var img = new Image();
+			img.src = 'src/img/' + imgs[i];
+			img.onload = function(){
+				num++;
+				callback(parseInt(num / count * 100));
+			}
+		}
+	}
 
 	var beginX = 0,
 		beginY = 0,

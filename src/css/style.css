@@ -21,6 +21,14 @@ html, body {
     height:100px;
     background-color: red;
 }
+.percent {
+    width: 100px;
+    height: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(200, 200, 200, 0.1);
+}
 /* common */
 .page-wrap {
     width: 100%;
@@ -161,6 +169,7 @@ html, body {
     background: url(../img/btn.png);
     width: 170px;
     height: 54px;
+    background-size: auto 100%;
 }
 .btn-inner {
     width: 85%;
@@ -196,7 +205,7 @@ html, body {
     .btn { 
     width: 130px;
     height: 41px;
-    background-size: 200% 100%;
+    background-size: auto 100%;
     }
     .btn-next {
     background-position-x: 130px;
