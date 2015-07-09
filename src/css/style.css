@@ -15,8 +15,8 @@ html, body {
 }
 .devconsole {
     position: absolute; 
-    right: 0;
-    bottom: 0;
+    right: 50%;
+    bottom: 0%;
     width:100px;
     height:100px;
     background-color: red;
@@ -327,76 +327,75 @@ img.download {
     display: block;
     margin: 3% auto;
 }
-.p4-1 {
+#p4-1 {
     top: 3%;
     right: 0;
 }
-.p4-2 {
+#p4-2 {
     top: -2%;
     left: 49px;
 }
-.p4-3 {
+#p4-3 {
     top: 8%;
     left: -1%;
 }
-.p4-4, .p4-5, .p4-6{
+#p4-4, #p4-5, #p4-6{
     z-index: -1;
 }
-.p4-4 {
+#p4-4 {
     bottom: 13%;
     left: 32%;
 }
-.p4-5 {
+#p4-5 {
     bottom: 6%;
 }
-.p4-6 {
+#p4-6 {
     right: 0;
     bottom: 0;
 }
 
-.p2-1 {
+#p2-1 {
     top: 0;
     left: 6%;
 }
-.p2-2 {
+#p2-2 {
     top: 19%;
     left: 0;
     z-index: -1;
 }
-.p2-3 {
+#p2-3 {
     top: 37%;
     right: 0;
 }
-.p2-4 {
+#p2-4 {
     top: 49%;
     left: 5%;
 }
-.p2-5 {
+#p2-5 {
     bottom: 0;
     left: 0;
     z-index: -1;
 }
-.p2-6 {
+#p2-6 {
     right: 0;
     bottom: 15%;
     z-index: -1;
 }
-
-
-.p1-1 {
-    top: 20%;
-    right: -5%;
+#p1-1 {
+    top: 10%;
+    left: 58%;
 }
-.p1-2 {
-    top: 39%;
+#p1-2 {
+    top: 29%;
     left: 18%;
 }
-.p1-3 {
-    bottom: 1%;
+#p1-3 {
+    top: 51%;
+    left: 1%; 
 }
-.p1-4 {
-    bottom: 10%;
-    right: -8%;
+#p1-4 {
+    top: 40%;
+    left: 51%;
 }
 /* 动画 */
 /*上滑提示*/
@@ -417,21 +416,21 @@ img.download {
 
 @-webkit-keyframes slideToLeft {
     0% {
-        -webkit-transform: translate3d(70%, -100px, 0) rotate(-20deg);;
+        -webkit-transform: translate3d(70%, -100px, 0) rotate(-20deg);
 
     }
     100% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);;
+        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
     }
 }
 
 @-webkit-keyframes slideToRight{
     0% {
-        -webkit-transform: translate3d(-100px, 100px, 0) rotate(-20deg);;
+        -webkit-transform: translate3d(-100px, 100px, 0) rotate(-20deg);
 
     }
     100% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);;
+        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
     }
 }
 @-webkit-keyframes slideToTop {

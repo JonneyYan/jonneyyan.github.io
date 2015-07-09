@@ -34,10 +34,10 @@
         <img class="slogan1" src="src/img/slogan_1.png" />
         <img class="slogan2" src="src/img/slogan_2.png" />
         <div class="arrow"></div>
-        <img class="shift p1-1" src="src/img/p1_1.png">
-        <img class="shift p1-2" src="src/img/p1_2.png">
-        <img class="shift p1-3" src="src/img/p1_3.png">
-        <img class="shift p1-4" src="src/img/p1_4.png">
+        <img class="shift" id="p1-1" src="src/img/p1_1.png">
+        <img class="shift" id="p1-2" src="src/img/p1_2.png">
+        <img class="shift" id="p1-3" src="src/img/p1_3.png">
+        <img class="shift" id="p1-4" src="src/img/p1_4.png">
     </div>
 
     <div class="page">
@@ -74,12 +74,12 @@
             <p>每晚8点国战开启</p>
         </div>
         <div class="arrow"></div>
-        <img class="shift p2-1" src="src/img/p2_1.png">
-        <img class="shift p2-2" src="src/img/p2_2.png">
-        <img class="shift p2-3" src="src/img/p2_3.png">
-        <img class="shift p2-4" src="src/img/p2_4.png">
-        <img class="shift p2-5" src="src/img/p2_5.png">
-        <img class="shift p2-6" src="src/img/p2_6.png">
+        <img class="shift" id="p2-1" src="src/img/p2_1.png">
+        <img class="shift" id="p2-2" src="src/img/p2_2.png">
+        <img class="shift" id="p2-3" src="src/img/p2_3.png">
+        <img class="shift" id="p2-4" src="src/img/p2_4.png">
+        <img class="shift" id="p2-5" src="src/img/p2_5.png">
+        <img class="shift" id="p2-6" src="src/img/p2_6.png">
     </div>
     <div class="page">
         <img class="zyjs" src="src/img/zyjs.png" />
@@ -256,17 +256,13 @@
         </div>
         <img class="page4-footer" src="src/img/page_4_footer.png" />
         <img class="download" src="src/img/download.png" />
-        <img class="shift p4-1" src="src/img/p4_1.png">
-        <img class="shift p4-2" src="src/img/p4_2.png">
-        <img class="shift p4-3" src="src/img/p4_3.png">
-        <img class="shift p4-4" src="src/img/p4_4.png">
-        <img class="shift p4-5" src="src/img/p4_5.png">
-        <img class="shift p4-6" src="src/img/p4_6.png">
+        <img class="shift" id="p4-1" src="src/img/p4_1.png">
+        <img class="shift" id="p4-2" src="src/img/p4_2.png">
+        <img class="shift" id="p4-3" src="src/img/p4_3.png">
+        <img class="shift" id="p4-4" src="src/img/p4_4.png">
+        <img class="shift" id="p4-5" src="src/img/p4_5.png">
+        <img class="shift" id="p4-6" src="src/img/p4_6.png">
     </div>
-</div>
-<div class="devconsole">
-    <p>x:<span id="aris-x">123</span></p>
-    <p>y:<span id="aris-y">123</span></p>
 </div>
 
 <script src="src/js/pageSlide.js"></script>
@@ -373,11 +369,13 @@
         pointDot: false,
         showTooltips: false
     });
-
-    var images = $('img.shift');
+    window.addEventListener('pageshow', function(event){
+        var images = $('img.shift');
         images.each(function(i) {
-        $(this).width($(this).width() / 2);
+            $(this).width($(this).width() / 2);
+        });
     });
+    
 </script>
 </body>
 </html>
