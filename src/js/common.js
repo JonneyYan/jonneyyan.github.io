@@ -19,7 +19,7 @@ $(document).ready(function(e) {
 		"#p4-6"
 	];
 	loadImage(imgResource, function(){		
-		$(".load").addClass("load_fadeOut");
+		// $(".onload").remove();
 
 		new PageSlide({
         pages: $('.page-wrap .page'),

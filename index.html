@@ -8,6 +8,7 @@
     <meta name="foramt-detection" content="telephone=no, email=no">
     <title>六龙御天</title>
     <link rel="stylesheet" href="src/css/style.css"/>
+    <link rel="stylesheet" href="src/css/loader.min.css"/>
     <script src="src/js/zepto_modify.js"></script>
     <!--custom style-->
     <style>
@@ -39,6 +40,12 @@
     </style>
 </head>
 <body>
+<div class="onload">
+    <div class="loading">
+        <div class="loader-inner ball-scale-multiple"><div></div><div></div><div></div></div>
+    </div>
+    <div class="rate"><span class="percent">00</span>/100</div>
+</div>
 <div class="page-wrap">
     <div class="page">
         <img class="logo" src="src/img/logo.png" />
@@ -280,7 +287,7 @@
         <img class="shift" id="p4-6" src="src/img/p4_6.png">
     </div>
 </div>
-<div class="percent">123</div>
+
 <script src="src/js/pageSlide.js"></script>
 <script src="src/js/common.js"></script>
 <script src="src/js/swipeSlide.min.js"></script>
