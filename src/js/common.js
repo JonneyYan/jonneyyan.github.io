@@ -19,7 +19,7 @@ $(document).ready(function(e) {
 		"#p4-6"
 	];
 	loadImage(imgResource, function(){		
-		// $(".onload").remove();
+		$(".onload").remove();
 
 		new PageSlide({
         pages: $('.page-wrap .page'),
@@ -29,6 +29,10 @@ $(document).ready(function(e) {
 	        },
 	        // dev: 2
 	    });
+	    $(".page").addClass("bigShake");
+	    setTimeout(function(){
+			$(".page").removeClass("bigShake");
+		}, 800);
 	});
 	/***加载图片***/
 	function loadImage(resource, callback){

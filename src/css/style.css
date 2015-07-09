@@ -13,13 +13,8 @@ html, body {
 .clear {
     clear: both;
 }
-.devconsole {
-    position: absolute; 
-    right: 50%;
-    bottom: 0%;
-    width:100px;
-    height:100px;
-    background-color: red;
+.bigShake{
+    -webkit-animation:bigShake 0.5s 0.3s both;
 }
 .onload {
     width: 100%;
@@ -37,9 +32,13 @@ html, body {
     background: orange;
 }
 .rate {
-    margin-top: 100%;
+    position: absolute;
     text-align: center;
     color: orange;
+    top: 60%;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
 }
 /* common */
 .page-wrap {
@@ -60,7 +59,7 @@ html, body {
 .page:first-child {
     background: url(../img/bg_1.jpg) no-repeat;
     background-size: auto 100%;
-    background-position: 69% center;
+    background-position: 70% 50%;
 }
 
 .page:nth-child(2) {
@@ -136,7 +135,7 @@ html, body {
 }
 .slogan2 {
     width: 60%;
-    top: 63px;
+    top: 35%;
     right: 0;
     position: absolute;
 }
@@ -211,8 +210,8 @@ html, body {
     .btns {
         bottom: 20%;
     }
+    
 }
-
 @media screen and (max-width: 400px) {
     .btn { 
     width: 130px;
@@ -448,6 +447,42 @@ a.page1-download {
     left: 41%;
 }
 /* 动画 */
+/******震动******/
+@-webkit-keyframes bigShake{
+  0%{
+    background-position: 70% 50%;
+  }
+  10%{
+    background-position: 75% 55%;
+  }
+  20%{
+    background-position: 65% 45%;
+  }
+  30%{
+    background-position: 70% 55%;
+  }
+  40%{
+    background-position: 75% 45%;
+  }
+  50%{
+    background-position: 67% 50%;
+  }
+  60%{
+    background-position: 70% 45%;
+  }
+  70%{
+    background-position: 75% 45%;
+  }
+  80%{
+    background-position: 75% 50%;
+  }               
+  90%{
+    background-position: 65% 45%;
+  }
+  100%{
+    background-position: 70% 50%;
+  }
+}
 /*上滑提示*/
 @-webkit-keyframes swipeMoveTop {
     0% {
