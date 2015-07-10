@@ -64,7 +64,7 @@ $(document).ready(function(e) {
 	/***加载图片***/
 	function loadImage(resource, callback){
 		preloadImage(resource, function(percent){
-			count = percent;
+			count = count > percent ? count : percent;
 			if(percent == 100){
 				clearTimeout(timer);
 				callback();

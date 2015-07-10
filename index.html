@@ -354,7 +354,7 @@
         var tabHeight = $(".tabs li").width() * (114 / 240.0);
         $(".tabs li").height(tabHeight);
 
-        var downloadHeight = $(".download").width() * (159 / 504) - 1;
+        var downloadHeight = parseInt($(".download").width() * (159 / 504));
         $(".download").height(downloadHeight);
 
     }
