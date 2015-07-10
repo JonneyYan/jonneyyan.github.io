@@ -1,5 +1,8 @@
 $(document).ready(function(e) {
+	//预先加载的图片资源
+	var openBgMotion = false;
 	var imgResource = ["bg_1.jpg", "bg_2.jpg", "download_active.png"];
+	//
 	var imgs = [
 		"#p1-1",
 		"#p1-2",
@@ -18,6 +21,7 @@ $(document).ready(function(e) {
 		"#p4-5",
 		"#p4-6"
 	];
+
 	var count = 1;
 	var timer;
 	loading();
@@ -45,14 +49,17 @@ $(document).ready(function(e) {
 	        // dev: 1
 	    });
 		
-		$(".page").first().addClass("bigShake");
-	
-	    
+		$(".page").first().addClass("bigShake");	    
 	    setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
 			$(".onload").remove();
 			$(".page").first().addClass("moveToRight");
 		}, 2000);
+
+		setTimeout(function(){
+			$(".page").first().removeClass("moveToRight");
+			openBgMotion = true;
+		}, 5000);
 	});
 	/***加载图片***/
 	function loadImage(resource, callback){
@@ -128,9 +135,19 @@ $(document).ready(function(e) {
 				for (var i = 0; i < imgs.length; ++i) {
 					offsetX = beginX;
 					offsetY = beginY;
-					$(".current " + imgs[i]).css("-webkit-transform", "translate3d(" + offsetX + "px," + offsetY + "px, 0)");
+					$(".current " + imgs[i]).css("-webkit-transform", "translate3d(" + offsetX + "px, 0, 0)");
 				};			
 			}else {
+				beginX -= x - bufferX;
+				beginY -= y - bufferY;
+			}
+			
+
+			if (beginX < 20 && beginX > -20 && openBgMotion) {
+				offsetX = 74 - beginX;
+				$(".page:first-child").css("background-position-x", offsetX + "%");
+				console.log($(".page:first-child").css("background-position-x"));
+			} else{
 				beginX -= x - bufferX;
 				beginY -= y - bufferY;
 			}

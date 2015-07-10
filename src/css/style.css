@@ -470,10 +470,13 @@ a.page1-download {
 /* 动画 */
 @-webkit-keyframes moveToRight{
   0%{
-    background-position: 90%;
+    background-position-x: 90%;
+  }
+  50%{
+    background-position-x: 55%;
   }
   100%{
-    background-position-x: 55%;
+    background-position-x: 90%;
   }
 }
 /******震动******/
@@ -593,7 +596,7 @@ a.page1-download {
     }
     0%{
         opacity:0;
-        -webkit-transform:translate3d(0,3000px,0);
+        -webkit-transform:translate3d(0,100px,0);
     }
     60%{
         opacity:1;
