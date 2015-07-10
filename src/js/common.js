@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-	var imgResource = ["bg_1.jpg", "bg_2.jpg", "bg_3.jpg", "bg_4.jpg"];
+	var imgResource = ["bg_1.jpg", "bg_2.jpg", "bg_3.jpg", "bg_4.jpg", "download_active.png"];
 	var imgs = [
 		"#p1-1",
 		"#p1-2",
