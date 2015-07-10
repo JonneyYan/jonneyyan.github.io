@@ -19,9 +19,10 @@ $(document).ready(function(e) {
 		"#p4-6"
 	];
 	var count = 1;
+	var timer;
 	loading();
 	function loading () {
-		var timer = setTimeout(function(){
+		timer = setTimeout(function(){
 			$('.percent').text(count);
 			loading();
 		}, 500);
@@ -37,7 +38,7 @@ $(document).ready(function(e) {
 
 		new PageSlide({
         pages: $('.page-wrap .page'),
-	        gestureFollowing: true,
+	        // gestureFollowing: true,
 	        onchange: function(i) {
 	            ;
 	        },
@@ -58,6 +59,7 @@ $(document).ready(function(e) {
 		preloadImage(resource, function(percent){
 			count = percent;
 			if(percent == 100){
+				clearTimeout(timer);
 				callback();
 			}
 		});
