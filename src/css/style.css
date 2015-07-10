@@ -368,17 +368,17 @@ img.zbxq {
 img.page4-footer {
     display: block;
     width: 50%;
-    margin: 3% auto;
+    margin: 8% auto;
 }
 a.download {
     width: 70%;
     display: block;
-    background: url(../img/download_normal.png);
+    background: url(../img/download_normal.png) no-repeat;
     background-size: 100% auto;
     margin: auto;
 }
 a.download:active {
-    background: url(../img/download_active.png);
+    background: url(../img/download_active.png) no-repeat;
     background-size: 100% auto;
 }
 a.page1-download {

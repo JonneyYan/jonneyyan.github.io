@@ -59,6 +59,8 @@ $(document).ready(function(e) {
 		setTimeout(function(){
 			$(".page").first().removeClass("moveToRight");
 			openBgMotion = true;
+			/***添加视察效果***/
+			window.addEventListener("deviceorientation", motion);
 		}, 5000);
 	});
 	/***加载图片***/
@@ -114,8 +116,7 @@ $(document).ready(function(e) {
 		$(window).on('load',_orientationchange);
 	});
 
-	/***添加视察效果***/
-	window.addEventListener("deviceorientation", motion);
+	
 
 	/******背景移动******/
 	function motion(event){
