@@ -15,7 +15,7 @@
         .slogan1, .slogan2, .logo, .slogan0, .page2-text, .page4-text, .download, .shift, .page4-content, .page4-footer, .slider, .btns {
             opacity: 0;
         }
-        
+
         /* 给元素绑定动画 */
         .current .logo {
             opacity: 1;
@@ -371,18 +371,12 @@
             $(".profession-detail .profession-active").removeClass("profession-active");  
             $(".profession-detail .profession").eq(index).addClass("profession-active");
 
-            var isIE8 = !-[1,];  
-
-            if (isIE8) {
-                var imgIndex = index + 1;
-                $('.radar img').first().attr('src', "./assets/images/r" + imgIndex +".png");
-            } else {
-                for (var i = 0; i <= data[index].length - 1; i++) {
-                    window.myRadar.datasets[0].points[i].value = data[index][i];
-                };
-                window.myRadar.datasets[0].data = data[index];
-                window.myRadar.update();
-            }
+            for (var i = 0; i <= data[index].length - 1; i++) {
+                window.myRadar.datasets[0].points[i].value = data[index][i];
+            };
+            window.myRadar.datasets[0].data = data[index];
+            window.myRadar.update();
+            
             liNode.addClass("tab-active"); 
         })
     })

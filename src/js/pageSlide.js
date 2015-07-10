@@ -260,7 +260,7 @@
 
                 state = 'end';
                 clearTimeout(this.timer);
-            }, 500);
+            }, 100);
         },
 
         prev: function () {
