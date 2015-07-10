@@ -13,36 +13,56 @@
     <!--custom style-->
     <style>
         /* 给元素绑定动画 */
+        .current .logo {
+            opacity: 1;
+            -webkit-animation: swipeMoveDown 1s 1s ease-in-out  both;
+        }
         .current .slogan1{
             opacity: 1;
-            -webkit-animation: slideToRight 1s ease-in-out  both;
+            -webkit-animation: slideToRight 0.5s ease-in-out  both;
         }
         .current .slogan2{
             opacity: 1;
-            -webkit-animation: slideToLeft 1s ease-in-out  both;
+            -webkit-animation: slideToLeft 1s 1s ease-in-out  both;
         }
         .current .slogan0{
             opacity: 1;
-            -webkit-animation: slideToLeft 1s ease-in-out  both;
+            -webkit-animation: slideToLeft 1s 1s ease-in-out  both;
         }
         .current .page2-text {
             opacity: 1;
-            -webkit-animation: downFlyInUp 1s ease-in-out both;
+            -webkit-animation: downFlyInUp 1s 1s ease-in-out both;
+        }
+        .current .slider {
+            opacity: 1;
+            -webkit-animation: downFlyInUp 0.5s ease-in-out both;
+        }
+        .current .btns {
+            opacity: 1;
+            -webkit-animation: downFlyInUp 1s 1.5s ease-in-out both;
+        }
+        .current .page4-content {
+            opacity: 1;
+            -webkit-animation: downFlyInUp 0.5s ease-in-out both;
         }
         .current .page4-text {
             opacity: 1;
-            -webkit-animation: downFlyInUp 1s ease-in-out both;
+            -webkit-animation: downFlyInUp 1s 0.8s ease-in-out both;
+        }
+        .current .page4-footer {
+            opacity: 1;
+            -webkit-animation: downFlyInUp 1s 1s ease-in-out both;
         }
         .current .download {
             opacity: 1;
-            -webkit-animation: downFlyInUp 1s cubic-bezier(0, 0, 0.2, 1)  both;
+            -webkit-animation: downFlyInUp 1s 1s cubic-bezier(0, 0, 0.2, 1)  both;
         }
         .current .shift {
             opacity: 1;
-            -webkit-animation: moveOut 1s cubic-bezier(0, 0, 0.2, 1)  both;
+            -webkit-animation: moveOut 1s 0.8s cubic-bezier(0, 0, 0.2, 1)  both;
         }
 
-        .slogan1, .slogan2, .sloga0, .page2-text, .page4-text, .download, .shift {
+        .slogan1, .slogan2, .logo, .slogan0, .page2-text, .page4-text, .download, .shift, .page4-content, .page4-footer, .slider, .btns {
             opacity: 0;
         }
     </style>
@@ -50,9 +70,9 @@
 <body>
 <div class="onload">
     <div class="loading">
-        <div class="loader-inner pacman"><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="loader-inner ball-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
-    <div class="rate">正在加载...</div>
+    <div class="rate">正在加载...<span class="percent">0</span></div>
 </div>
 <div class="page-wrap">
     <div class="page">
@@ -81,6 +101,7 @@
                 <a class="btn btn-next" href="javascript:void(0)"></a>
             </div>
         </div>
+        <div class="overland"></div>
         <div class="slider">
             <div class="slide" id="slide1">
                 <ul>
@@ -301,9 +322,12 @@
 <script src="src/js/swipeSlide.min.js"></script>
 <script src="src/js/Chart.min.js"></script>
 <script>
+    $(".slider").on('touchstart', function (e) {
+        return false;
+    });
     var sliderTab = $('#slide1').swipeSlide({
         autoSwipe : false,
-        continuousScroll:true,
+        // continuousScroll:true,
         lazyLoad : true
     });
 

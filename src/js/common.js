@@ -18,31 +18,45 @@ $(document).ready(function(e) {
 		"#p4-5",
 		"#p4-6"
 	];
+	var count = 1;
+	loading();
+	function loading () {
+		var timer = setTimeout(function(){
+			$('.percent').text(count);
+			loading();
+		}, 500);
+		if (count === 85) {
+			clearTimeout(timer);
+		}
+		count += 1;
+	}
+
 	loadImage(imgResource, function(){		
+		$('.percent').text("100");
 		$(".onload").addClass("removeOnload");
 
-		setTimeout(function(){
-			new PageSlide({
-	        pages: $('.page-wrap .page'),
-		        gestureFollowing: true,
-		        onchange: function(i) {
-		            ;
-		        },
-		        // dev: 1
-		    });
-			$(".page").first().addClass("bigShake");
-		}, 500);
+		new PageSlide({
+        pages: $('.page-wrap .page'),
+	        gestureFollowing: true,
+	        onchange: function(i) {
+	            ;
+	        },
+	        // dev: 1
+	    });
 		
+		$(".page").first().addClass("bigShake");
+	
 	    
 	    setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
 			$(".onload").remove();
+			$(".page").first().addClass("moveToRight");
 		}, 2000);
 	});
 	/***加载图片***/
 	function loadImage(resource, callback){
 		preloadImage(resource, function(percent){
-			// $('.percent').text(percent);
+			count = percent;
 			if(percent == 100){
 				callback();
 			}
@@ -96,8 +110,8 @@ $(document).ready(function(e) {
 
 	/******背景移动******/
 	function motion(event){
-		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 50);
-		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 100);
+		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 100);
+		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 200);
 		
 		if (bufferX === 0 && bufferY === 0) {
 			bufferX = x;
@@ -106,7 +120,7 @@ $(document).ready(function(e) {
 			beginX += x - bufferX;
 			beginY += y - bufferY;
 
-			if (beginX < 40 && beginX > -40 && beginY < 40 && beginY > -40){
+			if (beginX < 60 && beginX > -60 && beginY < 60 && beginY > -60){
 				var offsetX,
 					offsetY;
 				for (var i = 0; i < imgs.length; ++i) {

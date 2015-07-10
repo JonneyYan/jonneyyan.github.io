@@ -9,12 +9,13 @@ html, body {
     height: 100%;
     overflow: hidden;
     font-family: 'Microsoft Yahei', 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;
+    background-color: black;
 }
 .clear {
     clear: both;
 }
 .bigShake{
-    -webkit-animation:bigShake 1s 0.3s infinite both;
+    -webkit-animation:bigShake 0.8s 1s both;
 }
 .onload {
     width: 100%;
@@ -352,8 +353,8 @@ img.tag {
     position: absolute;
     width: 50%;
     -webkit-transform: rotate(-20deg);
-    left: -5%;
-    top: -3%;
+    left: -7%;
+    top: 74%;
 }
 img.juese {
     width: 100%;
@@ -446,7 +447,7 @@ a.page1-download {
     left: 48%;
 }
 #p1-2 {
-    top: 20%;
+    top: 31%;
     left: 10%;
 }
 #p1-3 {
@@ -457,42 +458,59 @@ a.page1-download {
     top: 30%;
     left: 41%;
 }
+.moveToRight {
+    -webkit-animation:moveToRight 2s 0.5s both;
+}
+.overland {
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    z-index: 10000;
+}
 /* 动画 */
+@-webkit-keyframes moveToRight{
+  0%{
+    background-position: 90%;
+  }
+  100%{
+    background-position-x: 55%;
+  }
+}
 /******震动******/
 
 @-webkit-keyframes bigShake{
   0%{
-    background-position: 70% 50%;
+    -webkit-transform:translate(0px,0px)
   }
   10%{
-    background-position: 75% 55%;
+    -webkit-transform:translate(5px,5px)
   }
   20%{
-    background-position: 65% 45%;
+    -webkit-transform:translate(-5px,-5px)
   }
   30%{
-    background-position: 70% 55%;
+    -webkit-transform:translate(0px,5px)
   }
   40%{
-    background-position: 75% 45%;
+    -webkit-transform:translate(5px,-5px)
   }
   50%{
-    background-position: 67% 50%;
+    -webkit-transform:translate(-5px,0px)
   }
   60%{
-    background-position: 70% 45%;
+    -webkit-transform:translate(0px,-5px)
   }
   70%{
-    background-position: 75% 45%;
+    -webkit-transform:translate(5px,-5px)
   }
   80%{
-    background-position: 75% 50%;
+    -webkit-transform:translate(5px,0px)
   }               
   90%{
-    background-position: 65% 45%;
+    -webkit-transform:translate(-5px,-5px)
   }
   100%{
-    background-position: 70% 50%;
+    -webkit-transform:translate(0px,0px)
   }
 }
 /*淡出*/
@@ -505,7 +523,16 @@ a.page1-download {
         opacity: 0;
     }
 }
-
+/*下滑提示*/
+@-webkit-keyframes swipeMoveDown {
+    0% {
+        -webkit-transform: translate3d(0, -100px, 0);
+    }
+    
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
 /*上滑提示*/
 @-webkit-keyframes swipeMoveTop {
     0% {
@@ -524,7 +551,7 @@ a.page1-download {
 
 @-webkit-keyframes slideToLeft {
     0% {
-        -webkit-transform: translate3d(170%, 0, 0);
+        -webkit-transform: translate3d(200%, -100%, 0);
 
     }
     100% {
@@ -534,7 +561,7 @@ a.page1-download {
 
 @-webkit-keyframes slideToRight{
     0% {
-        -webkit-transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 100%, 0);
 
     }
     100% {
