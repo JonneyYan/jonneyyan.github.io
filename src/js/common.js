@@ -107,11 +107,12 @@ $(document).ready(function(e) {
 			beginY += y - bufferY;
 
 			if (beginX < 20 && beginX > -20 && beginY < 20 && beginY > -20){
-				var offsetX;
+				var offsetX,
+					offsetY;
 				for (var i = 0; i < imgs.length; ++i) {
 					offsetX = beginX;
 					offsetY = beginY;
-					$(imgs[i]).css("transform", "translate(" + offsetX + "px," + offsetY + "px)");
+					$(".current " + imgs[i]).css("-webkit-transform", "translate3d(" + offsetX + "px," + offsetY + "px, 0)");
 				};			
 			}else {
 				beginX -= x - bufferX;
