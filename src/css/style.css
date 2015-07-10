@@ -19,7 +19,7 @@ html, body {
 .onload {
     width: 100%;
     height: 100%;
-    background-color: rgba(50, 50, 50, 0.96);
+    background-color: rgb(0, 0, 0);
     position: absolute;
     z-index: 10000;
 }
@@ -175,16 +175,11 @@ html, body {
 }
 .btns {
     position: absolute;
-    bottom: 25%;
+    top: 74%;
     width: 100%;
     margin: auto;
 }
-.btn {
-    background: url(../img/btn.png);
-    width: 170px;
-    height: 54px;
-    background-size: auto 100%;
-}
+
 .btn-inner {
     width: 85%;
     margin: auto;
@@ -196,10 +191,20 @@ html, body {
     visibility: hidden;
     height: 0;
 }
-.btn-prev {
+a.btn {
+    background: url(../img/btn.png);
+    width: 170px;
+    height: 54px;
+    background-size: 351px auto;
+    
+}
+a.btn:active {
+    background-position-y: 170px;
+}
+a.btn-prev {
     float: left;
 }
-.btn-next {
+a.btn-next {
     float: right;
     background-position-x: 170px;
 }
@@ -216,13 +221,16 @@ html, body {
     
 }
 @media screen and (max-width: 400px) {
-    .btn { 
-    width: 130px;
-    height: 41px;
-    background-size: auto 100%;
+    a.btn { 
+        width: 130px;
+        height: 41px;
+        background-size: 270px auto;
     }
-    .btn-next {
-    background-position-x: 130px;
+    a.btn-next {
+        background-position-x: 130px;
+    }
+    a.btn:active {
+        background-position-y: 130px;
     }
 }
 
@@ -343,7 +351,7 @@ li.tab-active {
 img.tag {
     position: absolute;
     width: 50%;
-    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
     left: -5%;
     top: -3%;
 }
@@ -380,14 +388,14 @@ a.page1-download {
 }
 #p4-1 {
     top: -6%;
-    left: 60%;
+    left: 73%;
 }
 #p4-2 {
     top: -2%;
     left: 49px;
 }
 #p4-3 {
-    top: 8%;
+    top: 1%;
     left: -1%;
 }
 #p4-4, #p4-5, #p4-6{
@@ -403,7 +411,7 @@ a.page1-download {
 }
 #p4-6 {
     top: 59%;
-    left: 90%;
+    left: 70%;
 }
 
 #p2-1 {
@@ -491,12 +499,10 @@ a.page1-download {
 @-webkit-keyframes fideOut {
     0% {
         opacity: 1;
-        -webkit-transform: scale(1, 1);
     }
 
     100% {
         opacity: 0;
-        -webkit-transform: scale(0.5, 0.5);
     }
 }
 
@@ -551,5 +557,28 @@ a.page1-download {
     }
     100% {
         opacity: 1;
+    }
+}
+/******从下向上快速飞入******/
+@-webkit-keyframes downFlyInUp{
+    0%,60%,75%,90%,100%{
+        -webkit-transition-timing-function:cubic-bezier(0.215,0.610,0.355,1.000);
+    }
+    0%{
+        opacity:0;
+        -webkit-transform:translate3d(0,3000px,0);
+    }
+    60%{
+        opacity:1;
+        -webkit-transform:translate3d(0,-20px,0);
+    }
+    75%{
+        -webkit-transform:translate3d(0,10px,0);
+    }
+    90%{
+        -webkit-transform:translate3d(0,-5px,0);
+    }
+    100%{
+        -webkit-transform:translate3d(0,0,0);
     }
 }

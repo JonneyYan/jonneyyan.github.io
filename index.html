@@ -14,28 +14,36 @@
     <style>
         /* 给元素绑定动画 */
         .current .slogan1{
+            opacity: 1;
             -webkit-animation: slideToRight 1s ease-in-out  both;
         }
         .current .slogan2{
+            opacity: 1;
             -webkit-animation: slideToLeft 1s ease-in-out  both;
         }
         .current .slogan0{
+            opacity: 1;
             -webkit-animation: slideToLeft 1s ease-in-out  both;
         }
         .current .page2-text {
-            -webkit-animation: slideToTop 1s ease-in-out both;
-        }
-        .current .ren {
-            -webkit-animation: slideToTop 1s ease-in-out 0.5s both;
+            opacity: 1;
+            -webkit-animation: downFlyInUp 1s ease-in-out both;
         }
         .current .page4-text {
-            -webkit-animation: slideToTop 1s ease-in-out both;
+            opacity: 1;
+            -webkit-animation: downFlyInUp 1s ease-in-out both;
         }
         .current .download {
-            -webkit-animation: slideToTop 1s cubic-bezier(0, 0, 0.2, 1)  both;
+            opacity: 1;
+            -webkit-animation: downFlyInUp 1s cubic-bezier(0, 0, 0.2, 1)  both;
         }
         .current .shift {
+            opacity: 1;
             -webkit-animation: moveOut 1s cubic-bezier(0, 0, 0.2, 1)  both;
+        }
+
+        .slogan1, .slogan2, .sloga0, .page2-text, .page4-text, .download, .shift {
+            opacity: 0;
         }
     </style>
 </head>
@@ -69,8 +77,8 @@
         </div>
         <div class="btns">
             <div class="btn-inner">
-                <div class="btn btn-prev"></div>
-                <div class="btn btn-next"></div>
+                <a class="btn btn-prev" href="javascript:void(0)"></a>
+                <a class="btn btn-next" href="javascript:void(0)"></a>
             </div>
         </div>
         <div class="slider">
@@ -278,7 +286,7 @@
             <img class="zbxq" src="src/img/zbxq.jpg" />
         </div>
         <img class="page4-footer" src="src/img/page_4_footer.png" />
-        <a class="download" href="javascript:void()"></a>
+        <a class="download" href="javascript:void(0)"></a>
         <img class="shift" id="p4-1" src="src/img/p4_1.png">
         <img class="shift" id="p4-2" src="src/img/p4_2.png">
         <img class="shift" id="p4-3" src="src/img/p4_3.png">
@@ -335,10 +343,7 @@
             var liNode = $(this);  
             $(".tabs .tab-active").removeClass("tab-active");  
             $(".profession-detail .profession-active").removeClass("profession-active");  
-
             $(".profession-detail .profession").eq(index).addClass("profession-active");
-
-            
 
             var isIE8 = !-[1,];  
 

@@ -28,7 +28,7 @@ $(document).ready(function(e) {
 		        onchange: function(i) {
 		            ;
 		        },
-		        // dev: 2
+		        dev: 1
 		    });
 			$(".page").first().addClass("bigShake");
 		}, 500);
@@ -96,8 +96,8 @@ $(document).ready(function(e) {
 
 	/******背景移动******/
 	function motion(event){
-		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 20);
-		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 50);
+		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 50);
+		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 100);
 		
 		if (bufferX === 0 && bufferY === 0) {
 			bufferX = x;
@@ -106,7 +106,7 @@ $(document).ready(function(e) {
 			beginX += x - bufferX;
 			beginY += y - bufferY;
 
-			if (beginX < 20 && beginX > -20 && beginY < 20 && beginY > -20){
+			if (beginX < 40 && beginX > -40 && beginY < 40 && beginY > -40){
 				var offsetX,
 					offsetY;
 				for (var i = 0; i < imgs.length; ++i) {
