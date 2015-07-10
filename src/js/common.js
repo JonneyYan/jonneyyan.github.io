@@ -108,7 +108,7 @@ $(document).ready(function(e) {
 
 			if (beginX < 20 && beginX > -20 && beginY < 20 && beginY > -20){
 				var offsetX;
-				for (var i = imgs.length - 1; i >= 0; i--) {
+				for (var i = 0; i < imgs.length; ++i) {
 					offsetX = beginX;
 					offsetY = beginY;
 					$(imgs[i]).css("transform", "translate(" + offsetX + "px," + offsetY + "px)");
