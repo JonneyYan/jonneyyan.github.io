@@ -28,7 +28,7 @@ $(document).ready(function(e) {
 		        onchange: function(i) {
 		            ;
 		        },
-		        dev: 1
+		        // dev: 1
 		    });
 			$(".page").first().addClass("bigShake");
 		}, 500);
