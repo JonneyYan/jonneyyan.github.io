@@ -63,7 +63,7 @@ html, body {
 .page:first-child {
     background: url(../img/bg_1.jpg) no-repeat;
     background-size: auto 100%;
-    background-position: 90% 50%;
+    background-position: 48% 50%;
 }
 
 .page:nth-child(2) {
@@ -293,7 +293,7 @@ li.tab-active {
 .radar {
     position: absolute;
     width: 20%;
-    left: 17%;
+    left: 10%;
     top: 20%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.56);
@@ -391,17 +391,20 @@ a.page1-download {
     display: none;
 }
 .tab-control {
-    width: 50px;
-    height: 50px;
+    width: 18px;
+    height: 49px;
     position: absolute;
     top: 33%;
-    background-color: rgba(255, 0, 100, 0.5);
+    background: url(../img/01.gif) no-repeat;
+    background-size: auto 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .tab-left {
     left: 0%;
 }
 .tab-right {
     right: 0%;
+    background-position-x: -50px;
 }
 #p4-1 {
     top: -6%;
@@ -486,13 +489,13 @@ a.page1-download {
 /* 动画 */
 @-webkit-keyframes moveToRight{
   0%{
-    background-position-x: 90%;
+    background-position-x: 48%;
   }
   50%{
-    background-position-x: 55%;
+    background-position-x: 10%;
   }
   100%{
-    background-position-x: 90%;
+    background-position-x: 48%;
   }
 }
 /******震动******/

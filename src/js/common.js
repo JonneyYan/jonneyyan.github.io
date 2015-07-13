@@ -145,7 +145,7 @@ $(document).ready(function(e) {
 			
 
 			if (beginX < 20 && beginX > -20 && openBgMotion) {
-				offsetX = 74 - beginX;
+				offsetX = 38 - beginX;
 				$(".page:first-child").css("background-position-x", offsetX + "%");
 				console.log($(".page:first-child").css("background-position-x"));
 			} else{
