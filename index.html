@@ -70,6 +70,7 @@
     </style>
 </head>
 <body>
+<img class="perloadimg" src="src/img/bg_1.jpg">
 <div class="onload">
     <div class="loading">
         <div class="loader-inner ball-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -148,6 +149,8 @@
             <div class="radar">
                 <canvas id="radar-canvas"></canvas>
             </div>
+            <div class="tab-control tab-left"></div>
+            <div class="tab-control tab-right"></div>
             <div class="profession profession-active">
                 <img src="src/img/t1.png" class="profession-title">
                 <img src="src/img/j1.jpg" class="profession-bg">
@@ -324,15 +327,18 @@
 <script src="src/js/swipeSlide.min.js"></script>
 <script src="src/js/Chart.min.js"></script>
 <script>
+    // 为轮播图上面的遮罩忽略事件
     $(".slider").on('touchstart', function (e) {
         return false;
     });
+    //初始化轮播图
     var sliderTab = $('#slide1').swipeSlide({
         autoSwipe : false,
         // continuousScroll:true,
         lazyLoad : true
     });
 
+    //轮播图的上下张按钮
     $(".btn-next").on("tap", function() {
         sliderTab.goTo('next');
     });
@@ -341,7 +347,7 @@
     });
     
     
-
+    //绑定resize事件，动态计算轮播图、标签栏、下载按钮的高度
     $(window).bind('resize', resize);
     function resize () {
         var sliderHeight = $(".slider").width() * 0.765;
@@ -360,26 +366,66 @@
     }
     resize();
 
-    // $(".shitou").on("tap", function(event) {
-    //     event.stopPropagation();
-    // });
-
+    // 初始化标签栏
     $(".tabs li").each(function (index) {
         $(this).tap(function() {
             var liNode = $(this);  
             $(".tabs .tab-active").removeClass("tab-active");  
             $(".profession-detail .profession-active").removeClass("profession-active");  
             $(".profession-detail .profession").eq(index).addClass("profession-active");
-
-            for (var i = 0; i <= data[index].length - 1; i++) {
-                window.myRadar.datasets[0].points[i].value = data[index][i];
-            };
-            window.myRadar.datasets[0].data = data[index];
-            window.myRadar.update();
-            
+            reloadRadar(index);
             liNode.addClass("tab-active"); 
         })
     })
+
+    $(".tab-right").tap(function () {
+        $(".tabs li").each(function (index) {
+            var currentTab = $(this); 
+            if (currentTab.hasClass("tab-active")) {
+                $(".tabs .tab-active").removeClass("tab-active");  
+                $(".profession-detail .profession-active").removeClass("profession-active");
+                reloadRadar(index);
+                if ($(".tabs li").length === index + 1) {
+                    $(".profession-detail .profession").first().addClass("profession-active");
+                    $(".tabs li").first().addClass("tab-active"); 
+                } else{
+                    $(".profession-detail .profession").eq(index + 1).addClass("profession-active");
+                    currentTab.next().addClass("tab-active"); 
+                }
+                return false;
+                
+            }
+        })
+    })
+
+    $(".tab-left").tap(function () {
+        $(".tabs li").each(function (index) {
+            var currentTab = $(this); 
+            if (currentTab.hasClass("tab-active")) {
+                $(".tabs .tab-active").removeClass("tab-active");  
+                $(".profession-detail .profession-active").removeClass("profession-active");
+                reloadRadar(index);
+                if (index === 0) {
+                    $(".profession-detail .profession").last().addClass("profession-active");
+                    $(".tabs li").last().addClass("tab-active"); 
+                } else{
+                    $(".profession-detail .profession").eq(index - 1).addClass("profession-active");
+                    currentTab.prev().addClass("tab-active"); 
+                }
+                return false;
+                
+            }
+        })
+    })
+
+
+    function reloadRadar (index) {
+        for (var i = 0; i <= data[index].length - 1; i++) {
+            window.myRadar.datasets[0].points[i].value = data[index][i];
+        };
+        window.myRadar.datasets[0].data = data[index];
+        window.myRadar.update();
+    }
 
     var data = [
         [6, 4, 4, 4, 5, 5],
@@ -388,6 +434,7 @@
         [3, 6, 5, 5, 6, 3]
     ];
 
+    // 初始化雷达图
     var radarChartData = {
         labels: ["防", "攻", "暴", "单", "群", "控"],
         datasets: [

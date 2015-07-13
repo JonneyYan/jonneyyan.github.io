@@ -46,10 +46,10 @@ $(document).ready(function(e) {
 	        onchange: function(i) {
 	            ;
 	        },
-	        // dev: 1
+	        // dev: 2
 	    });
 		
-		$(".page").first().addClass("bigShake");	    
+		$(".page").first().addClass("bigShake");
 	    setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
 			$(".onload").remove();

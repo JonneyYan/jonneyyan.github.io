@@ -293,7 +293,7 @@ li.tab-active {
 .radar {
     position: absolute;
     width: 20%;
-    left: 4%;
+    left: 17%;
     top: 20%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.56);
@@ -386,6 +386,22 @@ a.page1-download {
     bottom: 15%;
     margin-left: 15%;
     z-index: 1001;
+}
+.perloadimg {
+    display: none;
+}
+.tab-control {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33%;
+    background-color: rgba(255, 0, 100, 0.5);
+}
+.tab-left {
+    left: 0%;
+}
+.tab-right {
+    right: 0%;
 }
 #p4-1 {
     top: -6%;
