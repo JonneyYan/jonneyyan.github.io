@@ -20,7 +20,7 @@ html, body {
 .onload {
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(152, 152, 152);
     position: absolute;
     z-index: 10000;
 }
@@ -28,7 +28,7 @@ html, body {
     width: 100%;
     text-align: center;
     margin-top: 55%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
 }
 .loading > .loader-inner > div {
     border-color: orange;
@@ -57,23 +57,23 @@ html, body {
 }
 
 .page:first-child {
-    background: url(../img/bg_1.jpg) no-repeat;
+    background: url(../images/bg_1.jpg) no-repeat;
     background-size: auto 100%;
     background-position: 48% 50%;
 }
 
 .page:nth-child(2) {
-    background: url(../img/bg_2.jpg);
+    background: url(../images/bg_2.jpg);
     background-size: 100% auto;
 }
 
 .page:nth-child(3) {
-    background: url(../img/bg_3.jpg);
+    background: url(../images/bg_3.jpg);
     background-size: 100% 100%;
 }
 
 .page:last-child {
-    background: url(../img/bg_4.jpg);
+    background: url(../images/bg_4.jpg);
     background-size: 100% 100%;
 }
 .shift {
@@ -87,7 +87,7 @@ html, body {
     width: 51px;
     height: 42px;
     margin-left: -26px;
-    background: url(../img/arrow.png) no-repeat;
+    background: url(../images/arrow.png) no-repeat;
     background-size: 51px auto;
     opacity: 0;
 }
@@ -127,9 +127,9 @@ html, body {
     position: absolute;
 }
 .slogan1 {
-    width: 100%;
-    top: 50px;
-    left: 0;
+    width: 126%;
+    top: 78px;
+    left: -15%;
     margin-top: -100px;
     position: absolute;
 }
@@ -151,7 +151,7 @@ html, body {
 }
 .slider {
     width: 95%;
-    background: url(../img/bg_slider.png) no-repeat;
+    background: url(../images/bg_slider.png) no-repeat;
     background-size: 100%;
     margin: auto;
     position: relative;
@@ -189,7 +189,7 @@ html, body {
     height: 0;
 }
 a.btn {
-    background: url(../img/btn.png);
+    background: url(../images/btn.png);
     width: 170px;
     height: 54px;
     background-size: 351px auto;
@@ -270,7 +270,7 @@ a.btn-next {
 .tabs li {
     float: left;
     width: 25%;
-    background: url(../img/tabs.png) no-repeat;
+    background: url(../images/tabs.png) no-repeat;
     background-size: 392% auto;
     text-indent: -1000em;
 }
@@ -369,12 +369,12 @@ img.page4-footer {
 a.download {
     width: 70%;
     display: block;
-    background: url(../img/download_normal.png) no-repeat;
+    background: url(../images/download_normal.png) no-repeat;
     background-size: 100% auto;
     margin: auto;
 }
 a.download:active {
-    background: url(../img/download_active.png) no-repeat;
+    background: url(../images/download_active.png) no-repeat;
     background-size: 100% auto;
 }
 a.page1-download {
@@ -391,7 +391,7 @@ a.page1-download {
     height: 49px;
     position: absolute;
     top: 33%;
-    background: url(../img/01.gif) no-repeat;
+    background: url(../images/01.gif) no-repeat;
     background-size: auto 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
