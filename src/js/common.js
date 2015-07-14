@@ -69,7 +69,7 @@ $(document).ready(function(e) {
 			count = count > percent ? count : percent;
 			if(percent == 100){
 				clearTimeout(timer);
-				callback();
+				// callback();
 			}
 		});
 	}

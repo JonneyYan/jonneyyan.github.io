@@ -25,21 +25,15 @@ html, body {
     z-index: 10000;
 }
 .loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    width: 100%;
+    text-align: center;
 }
 .loading > .loader-inner > div {
     border-color: orange;
 }
 .rate {
-    position: absolute;
     text-align: center;
     color: white;
-    top: 60%;
-    left: 50%;
-    width: 200px;
-    margin-left: -100px;
 }
 .removeOnload {
     -webkit-animation:fideOut 1s ease-in-out both;
