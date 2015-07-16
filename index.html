@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="六龙御天 真3D 真国战" />
-    <meta name="description" content="你该玩真的了！！！" />
+    <title>六龙御天，真龙测试开启！真3D，真国战！</title>
+    <meta name="description" content="六龙御天，真龙测试开启！真3D，真国战！" />
+    <meta name="keywords" content="六龙御天,真3D,真国战" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta name="foramt-detection" content="telephone=no, email=no">
-    <title>六龙御天</title>
+<!--     <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"> -->
+    
     <link rel="stylesheet" href="assets/style/style.css"/>
     <link rel="stylesheet" href="assets/style/loader.min.css"/>
     <script src="assets/js/zepto_modify.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <!--custom style-->
     <style>
         .slogan1, .slogan2, .logo, .slogan0, .page2-text, .page4-text, .download, .shift, .page4-content, .page4-footer, .slider, .btns {
@@ -89,7 +90,7 @@
             <img class="slogan2" src="assets/images/text2.png" />
         </div>
         
-        <a class="download page1-download" href="http://app.qq.com/detail/1104472208?norecommend=1mmend%3D1&plg_auth=1"></a>
+        <!-- <a class="download page1-download" href="http://app.qq.com/detail/1104472208?norecommend=1mmend%3D1&plg_auth=1"></a> -->
         <div class="arrow"></div>
         <img class="shift" id="p1-1" src="assets/images/p1_1.png">
         <img class="shift" id="p1-2" src="assets/images/p1_2.png">
@@ -119,9 +120,6 @@
                     </li>
                     <li>
                         <img src="assets/images/slider_3.png">
-                    </li>
-                    <li>
-                        <img src="assets/images/slider_4.png">
                     </li>
                 </ul>
             </div>
@@ -459,12 +457,64 @@
         pointDot: false,
         showTooltips: false
     });
-    window.addEventListener('pageshow', function(event){
-        var images = $('img.shift');
-        images.each(function(i) {
-            $(this).width($(this).width() / 2);
+    // window.addEventListener('pageshow', function(event){
+    //     var images = $('img.shift');
+    //     images.each(function(i) {
+    //         $(this).width($(this).width() / 2);
+    //     });
+    // });
+    
+    /******微信分享内容******/
+    var shareTitle="六龙御天，真龙测试开启！真3D，真国战！";
+    var sharePic = "http://6.zlfun.com/m/assets/images/bg_1.jpg";
+    var shareLink = "http://6.zlfun.com/m";
+    var shareDesc = "六龙御天，真龙测试开启！真3D，真国战！";
+    
+    wx.config({
+        debug: false,
+        appId: "wxd1b1d7f47051f2f0",
+        timestamp: "1435289794",
+        nonceStr: "sWd0nZVNV4pavEKv",
+        signature: "24388f164fc92c27bce294edbaddec465d3ef226",
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+      });
+      wx.ready(function () {
+        // 在这里调用 API
+        wx.checkJsApi({
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ],
+            success: function (res) {
+            }
         });
-    });
+            
+        wx.onMenuShareTimeline({
+            title: shareTitle,
+            link: shareLink,
+            imgUrl: sharePic,
+            desc: shareDesc,
+            success:function(){
+            },
+            cancel:function(){
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: shareTitle,
+            link: shareLink,
+            imgUrl: sharePic,
+            desc:shareDesc,
+            success:function(){
+            },
+            cancel:function(){
+            }
+        });
+        
+      });
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@ $(document).ready(function() {
 	"use strict";
 	//预先加载的图片资源
 	var openBgMotion = false;
-	var imgResource = ["bg_1.jpg", "bg_2.jpg", "bg_3.jpg", "bg_4.jpg", "download_active.png", "slider_1.png", "slider_2.png", "slider_3.png", "slider_4.png", "p2_6.png", "p1_4.png", "p4_4.png", "logo.png", "text.png", "text1.png", "text2.png"];
+	var imgResource = ["bg_1.jpg", "bg_2.jpg", "bg_3.jpg", "bg_4.jpg", "download_active.png", "slider_1.png", "slider_2.png", "slider_3.png", "p2_6.png", "p1_4.png", "p4_4.png", "logo.png", "text.png", "text1.png", "text2.png"];
 	
 	var imgs = [
 		"#p1-1",
