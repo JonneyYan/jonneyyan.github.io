@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://JonneyYan.github.io/sitemap.xml 
