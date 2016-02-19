@@ -1,0 +1,627 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Microsoft Yahei', 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;
+    background-color: black;
+}
+.clear {
+    clear: both;
+}
+.bigShake{
+    -webkit-animation:bigShake 0.8s 1s both;
+}
+.onload {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 10000;
+}
+.loading {
+    width: 100%;
+    text-align: center;
+}
+.loading > .loader-inner > div {
+    border-color: orange;
+}
+.rate {
+    text-align: center;
+    color: white;
+}
+.removeOnload {
+    -webkit-animation:fideOut 1s ease-in-out both;
+}
+/* common */
+.page-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    overflow: hidden;
+}
+
+.page:first-child {
+    background: url(../img/bg_1.jpg) no-repeat;
+    background-size: auto 100%;
+    background-position: 48% 50%;
+}
+
+.page:nth-child(2) {
+    background: url(../img/bg_2.jpg);
+    background-size: 100% auto;
+}
+
+.page:nth-child(3) {
+    background: url(../img/bg_3.jpg);
+    background-size: 100% 100%;
+}
+
+.page:last-child {
+    background: url(../img/bg_4.jpg);
+    background-size: 100% 100%;
+}
+.shift {
+    position: absolute;
+
+}
+.arrow{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    width: 51px;
+    height: 42px;
+    margin-left: -26px;
+    background: url(../img/arrow.png) no-repeat;
+    background-size: 51px auto;
+    opacity: 0;
+}
+.current .arrow {
+    -webkit-animation: swipeMoveTop 1.5s 1s ease infinite;
+}
+/* page 1 */
+.ren {
+    height: 120%;
+    position: absolute;
+    left: -120px;
+}
+.logo {
+    width: 40%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.huohua {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.slogan {
+    width: 100%;
+    height: 40%;
+    bottom: 30%;
+    position: absolute;
+}
+.slogan0, .slogan1, .slogan2 {
+    background-size: 100% auto;
+}
+.slogan0 {
+    width: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.slogan1 {
+    width: 100%;
+    top: 50px;
+    left: 0;
+    margin-top: -100px;
+    position: absolute;
+}
+.slogan2 {
+    width: 60%;
+    top: 35%;
+    right: 0;
+    position: absolute;
+}
+/* page 2 */
+.page2-text {
+    position: absolute;
+    top: 5%;
+}
+.page2-text img {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+.slider {
+    width: 95%;
+    background: url(../img/bg_slider.png) no-repeat;
+    background-size: 100%;
+    margin: auto;
+    position: relative;
+    top: 15%;
+    color: white;
+}
+.slider img {
+    width: 92%;
+    margin: 3% 4%;
+}
+.slider p {
+    text-align: right;
+    padding-right: 10px;
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    font-size: 18px;
+}
+.btns {
+    position: absolute;
+    top: 74%;
+    width: 100%;
+    margin: auto;
+}
+
+.btn-inner {
+    width: 85%;
+    margin: auto;
+}
+.btn-inner:after {
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+a.btn {
+    background: url(../img/btn.png);
+    width: 170px;
+    height: 54px;
+    background-size: 351px auto;
+    
+}
+a.btn:active {
+    background-position-y: 170px;
+}
+a.btn-prev {
+    float: left;
+}
+a.btn-next {
+    float: right;
+    background-position-x: 170px;
+}
+.shitou {
+    position: absolute;
+    top: -10%;
+    height: 100%;
+    left: -23%;
+}
+@media screen and (max-height: 480px) {
+    .btns {
+        bottom: 20%;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    a.btn { 
+        width: 130px;
+        height: 41px;
+        background-size: 270px auto;
+    }
+    a.btn-next {
+        background-position-x: 130px;
+    }
+    a.btn:active {
+        background-position-y: 130px;
+    }
+}
+
+
+
+.slide:after{
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+.slide ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide li{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide li:first-child{
+    z-index: 1;
+}
+
+/* page 3*/
+.zyjs {
+    width: 93px;
+    margin: 10px;
+}
+.tabs {
+    padding: 0 10px;
+}
+.tabs li {
+    float: left;
+    width: 25%;
+    background: url(../img/tabs.png) no-repeat;
+    background-size: 392% auto;
+    text-indent: -1000em;
+}
+li.tab2 {
+    background-position: 34% 0;
+}
+li.tab3 {
+    background-position: 68% 0;
+}
+li.tab4 {
+    background-position: 102% 0;
+}
+li.tab-active {
+    background-position-y: 102%;
+}
+.radar {
+    position: absolute;
+    width: 20%;
+    left: 10%;
+    top: 20%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.56);
+}
+
+.profession-detail {
+    position: relative;
+    background: black;
+}
+.profession-title {
+    width: 96%;
+    margin: 2%;
+}
+.profession-bg {
+    width: 100%;
+}
+.profession {
+    display: none;
+}
+.profession-active {
+    display: block;
+}
+.skills {
+    padding: 10px;
+}
+.skill {
+    width: 16%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 9px;
+    padding: 2%;
+}
+.skill img{
+    width: 100%;
+}
+.skill h1 img{
+    width: 90%;
+}
+
+/*
+    page4
+*/
+
+.page4-text {
+    padding: 5%;
+}
+.page4-text img {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+}
+.page4-content {
+    position: relative;
+}
+img.tag {
+    position: absolute;
+    width: 50%;
+    -webkit-transform: rotate(-20deg);
+    left: -7%;
+    top: 74%;
+}
+img.juese {
+    width: 100%;
+}
+img.zbxq {
+    width: 30%;
+    position: absolute;
+    right: 3%;
+    top: -5%;
+}
+img.page4-footer {
+    display: block;
+    width: 50%;
+    margin: 8% auto;
+}
+a.download {
+    width: 70%;
+    display: block;
+    background: url(../img/download_normal.png) no-repeat;
+    background-size: 100% auto;
+    margin: auto;
+}
+a.download:active {
+    background: url(../img/download_active.png) no-repeat;
+    background-size: 100% auto;
+}
+a.page1-download {
+    position: absolute;
+    bottom: 15%;
+    margin-left: 15%;
+    z-index: 1001;
+}
+.perloadimg {
+    display: none;
+}
+.tab-control {
+    width: 18px;
+    height: 49px;
+    position: absolute;
+    top: 33%;
+    background: url(../img/01.gif) no-repeat;
+    background-size: auto 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.tab-left {
+    left: 0%;
+}
+.tab-right {
+    right: 0%;
+    background-position-x: -50px;
+}
+#p4-1 {
+    top: -6%;
+    left: 73%;
+}
+#p4-2 {
+    top: -2%;
+    left: 49px;
+}
+#p4-3 {
+    top: 1%;
+    left: -1%;
+}
+#p4-4, #p4-5, #p4-6{
+    z-index: -1;
+}
+#p4-4 {
+    top: 38%;
+    left: 17%;
+}
+#p4-5 {
+    top: 49%;
+    left: -5%;
+}
+#p4-6 {
+    top: 59%;
+    left: 70%;
+}
+
+#p2-1 {
+    top: -5%;
+    left: 6%;
+}
+#p2-2 {
+    top: 5%;
+    left: 0;
+    z-index: -1;
+}
+#p2-3 {
+    top: 20%;
+    left: 90%;
+}
+#p2-4 {
+    top: 44%;
+    left: -17%;
+}
+#p2-5 {
+    top: 50%;
+    left: 0;
+    z-index: -1;
+}
+#p2-6 {
+    top: 60%;
+    left: 60%;
+    z-index: -1;
+}
+#p1-1 {
+    top: 5%;
+    left: 48%;
+}
+#p1-2 {
+    top: 31%;
+    left: 10%;
+}
+#p1-3 {
+    top: 40%;
+    left: 1%; 
+}
+#p1-4 {
+    top: 30%;
+    left: 41%;
+}
+.moveToRight {
+    -webkit-animation:moveToRight 2s 0.5s both;
+}
+.overland {
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    z-index: 10000;
+}
+/* 动画 */
+@-webkit-keyframes moveToRight{
+  0%{
+    background-position-x: 48%;
+  }
+  50%{
+    background-position-x: 10%;
+  }
+  100%{
+    background-position-x: 48%;
+  }
+}
+/******震动******/
+
+@-webkit-keyframes bigShake{
+  0%{
+    -webkit-transform:translate(0px,0px)
+  }
+  10%{
+    -webkit-transform:translate(5px,5px)
+  }
+  20%{
+    -webkit-transform:translate(-5px,-5px)
+  }
+  30%{
+    -webkit-transform:translate(0px,5px)
+  }
+  40%{
+    -webkit-transform:translate(5px,-5px)
+  }
+  50%{
+    -webkit-transform:translate(-5px,0px)
+  }
+  60%{
+    -webkit-transform:translate(0px,-5px)
+  }
+  70%{
+    -webkit-transform:translate(5px,-5px)
+  }
+  80%{
+    -webkit-transform:translate(5px,0px)
+  }               
+  90%{
+    -webkit-transform:translate(-5px,-5px)
+  }
+  100%{
+    -webkit-transform:translate(0px,0px)
+  }
+}
+/*淡出*/
+@-webkit-keyframes fideOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+/*下滑提示*/
+@-webkit-keyframes swipeMoveDown {
+    0% {
+        -webkit-transform: translate3d(0, -100px, 0);
+    }
+    
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+/*上滑提示*/
+@-webkit-keyframes swipeMoveTop {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 10px, 0);
+    }
+    70% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -10px, 0);
+    }
+}
+
+@-webkit-keyframes slideToLeft {
+    0% {
+        -webkit-transform: translate3d(200%, -100%, 0);
+
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slideToRight{
+    0% {
+        -webkit-transform: translate3d(-100%, 100%, 0);
+
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes slideToTop {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 50px, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes moveOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/******从下向上快速飞入******/
+@-webkit-keyframes downFlyInUp{
+    0%,60%,75%,90%,100%{
+        -webkit-transition-timing-function:cubic-bezier(0.215,0.610,0.355,1.000);
+    }
+    0%{
+        opacity:0;
+        -webkit-transform:translate3d(0,100px,0);
+    }
+    60%{
+        opacity:1;
+        -webkit-transform:translate3d(0,-20px,0);
+    }
+    75%{
+        -webkit-transform:translate3d(0,10px,0);
+    }
+    90%{
+        -webkit-transform:translate3d(0,-5px,0);
+    }
+    100%{
+        -webkit-transform:translate3d(0,0,0);
+    }
+}
