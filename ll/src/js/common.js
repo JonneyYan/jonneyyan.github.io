@@ -36,21 +36,21 @@ $(document).ready(function(e) {
 		count += 1;
 	}
 
-	loadImage(imgResource, function(){		
+	loadImage(imgResource, function(){
 		$('.percent').text("100");
 		$(".onload").addClass("removeOnload");
 
 		new PageSlide({
-        pages: $('.page-wrap .page'),
-	        // gestureFollowing: true,
-	        onchange: function(i) {
-	            ;
-	        },
-	        // dev: 2
-	    });
-		
+			pages: $('.page-wrap .page'),
+			// gestureFollowing: true,
+			onchange: function(i) {
+				;
+			},
+			// dev: 2
+		});
+
 		$(".page").first().addClass("bigShake");
-	    setTimeout(function(){
+		setTimeout(function(){
 			$(".page").first().removeClass("bigShake");
 			$(".onload").remove();
 			$(".page").first().addClass("moveToRight");
@@ -91,9 +91,9 @@ $(document).ready(function(e) {
 	}
 
 	var beginX = 0,
-		beginY = 0,
-		bufferX = 0,
-		bufferY = 0;
+	beginY = 0,
+	bufferX = 0,
+	bufferY = 0;
 	/***设备选择提示***/
 	$(function(){
 		var bd = $(document.body);
@@ -101,28 +101,28 @@ $(document).ready(function(e) {
 		function _orientationchange() {
 			scrollTo(0, 1);
 			switch(window.orientation){
-				case 0:		//横屏			
-					break;
+				case 0:		//横屏
+				break;
 				case 180:	//横屏
-					break;
+				break;
 				case -90: 	//竖屏
-					alert("请竖屏查看页面，效果更佳。");
-					break;
+				alert("请竖屏查看页面，效果更佳。");
+				break;
 				case 90: 	//竖屏
-					alert("请竖屏查看页面，效果更佳。");
-					break;
+				alert("请竖屏查看页面，效果更佳。");
+				break;
 			}
 		}
 		$(window).on('load',_orientationchange);
 	});
 
-	
+
 
 	/******背景移动******/
 	function motion(event){
 		var x = parseInt(Math.sin(event.gamma * Math.PI / 180) * 100);
 		var y = parseInt(Math.sin(event.beta * Math.PI / 180) * 200);
-		
+
 		if (bufferX === 0 && bufferY === 0) {
 			bufferX = x;
 			bufferY = y;
@@ -132,17 +132,17 @@ $(document).ready(function(e) {
 
 			if (beginX < 60 && beginX > -60 && beginY < 60 && beginY > -60){
 				var offsetX,
-					offsetY;
+				offsetY;
 				for (var i = 0; i < imgs.length; ++i) {
 					offsetX = beginX;
 					offsetY = beginY;
 					$(".current " + imgs[i]).css("-webkit-transform", "translate3d(" + offsetX + "px, 0, 0)");
-				};			
+				};
 			}else {
 				beginX -= x - bufferX;
 				beginY -= y - bufferY;
 			}
-			
+
 
 			if (beginX < 20 && beginX > -20 && openBgMotion) {
 				offsetX = 38 - beginX;
