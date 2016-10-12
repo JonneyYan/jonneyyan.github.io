@@ -9,10 +9,45 @@
       background: lightgray;
       height: 100%;
       overflow: hidden;
+      margin: 0;
     }
   </style>
 </head>
 <body>
 <video src="http://200020409.vod.myqcloud.com/200020409_7e4d37888f6611e6a176e9755ae12364.f20.mp4" autoplay webkit-playsinline width="100%" preload="auto" />
+
+<script type="text/javascript">
+if (browser.versions.weixin) {
+    wx.onMenuShareTimeline({
+        title: '鸡冻！给中国队加油就能打破世界记录！', // 分享标题
+        link: share_link, // 分享链接
+        imgUrl: share_image, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            monitor.log({bk: 'share_timeline', cid: 'share_timeline'});
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+
+    wx.onMenuShareAppMessage({
+        title: '鸡冻！给中国队加油就能打破世界记录！', // 分享标题
+        desc: '给中国队加油，成为世界纪录缔造者，更有机会赢里约奥运会大礼包。', // 分享描述
+        link: share_link, // 分享链接
+        imgUrl: share_image, // 分享图标
+        type: '', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () {
+            // 用户确认分享后执行的回调函数
+            monitor.log({bk: 'share_app_message', cid: 'share_app_message'});
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+}
+</script>
+
 </body>
 </html>
