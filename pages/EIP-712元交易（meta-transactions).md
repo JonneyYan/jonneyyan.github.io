@@ -1,4 +1,4 @@
-tag:: EIP,签名
+tags:: EIP 签名
 
 - EIP-712 的主要目标是提供一种更加结构化和安全的方式进行消息签名和验证。在以太坊中，通常使用`eth_sign` 方法签名消息，但这种方法会导致安全问题（例如签名重放）。EIP-712 提供了一种标准的消息结构， [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/cryptography/EIP712.sol) 提供了一个标准的实现，对应metamask v4，其中签名消息的结构如下：
 	- "\x19\x01" ‖ domainSeparator ‖ hashStruct(message), 总共0x42 bytes = 2 + 32 +32
