@@ -213,7 +213,7 @@
 
  :ref/linked-references-collapsed-threshold 50
 
- :favorites ["⚡️ golang developer roadmap" "⚓️ Developer Roadmap" "后端面试题" "🐭 Golang Developer Roadmap" "后段面试题" "以太坊原理" "EVM 深入原理" "合约面试" "前端面试" "合约面试题" "⛓ blockchain developer roadmap" "🧭 blockchain developer roadmap" "🗺️ Blockchain Developer Roadmap"]
+ :favorites ["developer roadmap" "blockchain developer roadmap" "⚓️ developer roadmap" "⚡️ golang developer roadmap" "⛓ blockchain developer roadmap" "后端面试题" "🐭 golang developer roadmap" "后段面试题" "以太坊原理" "evm 深入原理" "合约面试题" "🧭 blockchain developer roadmap" "🗺️ blockchain developer roadmap"]
 
  ;; any number between 0 and 1 (the greater it is the faster the changes of the next-interval of card reviews) (default 0.5)
  ;; :srs/learning-fraction 0.5
