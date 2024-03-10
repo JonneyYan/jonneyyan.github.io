@@ -48,7 +48,7 @@
  ;; Set Bullet indentation when exporting
  ;; default option: tab
  ;; Possible options are for `:sidebar` are
- ;; 1. `:eight-spaces` as eight spacespublishing
+ ;; 1. `:eight-spaces` as eight spaces
  ;; 2. `:four-spaces` as four spaces
  ;; 3. `:two-spaces` as two spaces
  ;; :export/bullet-indentation :tab
@@ -213,7 +213,7 @@
 
  :ref/linked-references-collapsed-threshold 50
 
- :favorites ["⚓️ developer roadmap" "⚡️ golang developer roadmap" "⛓ blockchain developer roadmap" "后端面试题" "🐭 golang developer roadmap" "后段面试题" "以太坊原理" "evm 深入原理" "合约面试题" "🧭 blockchain developer roadmap" "🗺️ blockchain developer roadmap"]
+ :favorites ["后端面试题" "🐭 Golang Developer Roadmap" "后段面试题" "以太坊原理" "EVM 深入原理" "合约面试" "前端面试" "合约面试题" "⛓ blockchain developer roadmap" "🧭 blockchain developer roadmap" "🗺️ Blockchain Developer Roadmap"]
 
  ;; any number between 0 and 1 (the greater it is the faster the changes of the next-interval of card reviews) (default 0.5)
  ;; :srs/learning-fraction 0.5
@@ -228,9 +228,9 @@
  ;; Enable all your properties to have corresponding pages
  :property-pages/enabled? true
  :journal/page-title-format "yyyy-MM-dd EEEE"
- :feature/enable-journals? true
+ :feature/enable-journals? false
  :ui/show-brackets? true
- :feature/enable-whiteboards? true
+ :feature/enable-whiteboards? false
  :graph/settings {:builtin-pages? true, :journal? false}
  :default-home {:page "首页"}
  :publishing/all-pages-public? true
