@@ -233,7 +233,7 @@
  :feature/enable-whiteboards? true
  :graph/settings {:builtin-pages? true, :journal? false}
  :default-home {:page "首页"}
- :publishing/all-pages-public? false
+ :publishing/all-pages-public? true
  :editor/logical-outdenting? false
  :editor/preferred-pasting-file? true
  :ui/show-full-blocks? true

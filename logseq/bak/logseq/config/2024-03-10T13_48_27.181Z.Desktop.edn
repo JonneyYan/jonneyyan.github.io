@@ -228,12 +228,12 @@
  ;; Enable all your properties to have corresponding pages
  :property-pages/enabled? true
  :journal/page-title-format "yyyy-MM-dd EEEE"
- :feature/enable-journals? false
+ :feature/enable-journals? true
  :ui/show-brackets? true
  :feature/enable-whiteboards? true
  :graph/settings {:builtin-pages? true, :journal? false}
  :default-home {:page "首页"}
- :publishing/all-pages-public? true
+ :publishing/all-pages-public? false
  :editor/logical-outdenting? false
  :editor/preferred-pasting-file? true
  :ui/show-full-blocks? true
