@@ -1,0 +1,268 @@
+- 核心协议：
+	- [ERC-721: Non-Fungible Token Standard (ethereum.org)](https://eips.ethereum.org/EIPS/eip-721)
+	  collapsed:: true
+		- 时间：2018-01-24
+		- 实现了数字资产的最基本的所有权验证、转移、授权
+		- functions
+		  collapsed:: true
+			- `balanceOf(address owner) → uint256 balance`
+			- `ownerOf(uint256 tokenId) → address owner`
+			- `safeTransferFrom(address from, address to, uint256 tokenId, bytes data)`
+			- `safeTransferFrom(address from, address to, uint256 tokenId)`
+			- `transferFrom(address from, address to, uint256 tokenId)`
+			- `approve(address to, uint256 tokenId)`
+			- `setApprovalForAll(address operator, bool _approved)`
+			- `getApproved(uint256 tokenId) → address operator`
+			- `isApprovedForAll(address owner, address operator) → bool`
+		- events
+		  collapsed:: true
+			- `Transfer(address indexed from, address indexed to, uint256 indexed tokenId)`
+			  id:: 6457cee5-43bf-4fd1-8b6e-f3823934e59c
+			- `Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)`
+			  id:: 6457ceed-5935-4069-8b6e-2d8ef8f40865
+			- `ApprovalForAll(address indexed owner, address indexed operator, bool approved)`
+			  id:: 6457ceed-fc76-403c-aa91-f02c8ce58fe1
+		- 基础扩展
+		  collapsed:: true
+			- [IERC721Metadata](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#IERC721Metadata)
+			  collapsed:: true
+				- `name() → string`
+				- `symbol() → string`
+				- `tokenURI(uint256 tokenId) → string`
+			- [IERC721Enumerable](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#IERC721Enumerable)
+			  collapsed:: true
+				- `totalSupply() → uint256`
+				- `tokenOfOwnerByIndex(address owner, uint256 index) → uint256`
+				- `tokenByIndex(uint256 index) → uint256`
+			- [ERC721URIStorage]([ERC 721 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721URIStorage))
+			  collapsed:: true
+				- `_setTokenURI(uint256 tokenId, string _tokenURI)`
+	- [ERC-1155: Multi Token Standard (ethereum.org)](https://eips.ethereum.org/EIPS/eip-1155)
+	  collapsed:: true
+		- 时间：2018-06-17
+		- 合约可以同时支持多种不同的代币类型，可以分别代表游戏中的不同道具、装备、角色等数字资产，也可以代表虚拟身份、身份凭证等
+		- functions
+		  collapsed:: true
+			- `balanceOf(address account, uint256 id) → uint256`
+			- `balanceOfBatch(address[] accounts, uint256[] ids) → uint256[]`
+			- `setApprovalForAll(address operator, bool approved)`
+			- `isApprovedForAll(address account, address operator) → bool`
+			- `safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes data)`
+			- `safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data)`
+		- events
+		  collapsed:: true
+			- `TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value)`
+			- `TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values)`
+			- `ApprovalForAll(address indexed account, address indexed operator, bool approved)`
+		- 基础扩展
+			- [IERC1155MetadataURI]([ERC 1155 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/4.x/api/token/erc1155#IERC1155MetadataURI))
+				- `uri(uint256 id) → string`
+				- `URI(string value, uint256 indexed id)`
+			- [ERC1155Supply]([ERC 1155 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/4.x/api/token/erc1155#ERC1155Supply))
+				- `totalSupply(uint256 id) → uint256`
+				- `exists(uint256 id) → bool`
+			- [ERC1155URIStorage]([ERC 1155 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/4.x/api/token/erc1155#ERC1155URIStorage))
+				- `_setURI(uint256 tokenId, string tokenURI)`
+				- `_setBaseURI(string baseURI)`
+				-
+- 应用扩展
+	- 批量操作
+		- [ERC-2309: ERC-721 Consecutive Transfer Extension (ethereum.org)](https://eips.ethereum.org/EIPS/eip-2309)
+		  collapsed:: true
+			- 时间：2019-10-08
+			- 批量创建、销毁、转移 ERC721 NFT 的协议
+			- 状态：社区不是很认可，每个 NFT 应该有 Transfer 事件，不然会有假冒的 Token
+			- ```solidity
+			  event ConsecutiveTransfer(uint256 indexed fromTokenId, uint256 toTokenId, address indexed fromAddress, address indexed toAddress);
+			  
+			  // Single token creation
+			  emit ConsecutiveTransfer(1, 1, address(0), toAddress);
+			  
+			  // Batch token creation
+			  emit ConsecutiveTransfer(1, 100000, address(0), toAddress);
+			  
+			  // Batch token transfer
+			  emit ConsecutiveTransfer(1, 100000, fromAddress, toAddress);
+			  
+			  // Burn
+			  emit ConsecutiveTransfer(1, 100000, from, address(0));
+			  ```
+		- [ERC-721A](https://www.erc721a.org/) Azuki Batch Mint
+			- 批量 mint 时，gas 成本接近于 mint 1 个 token
+			- 状态：Azuki 最先使用，现在有些新项目为了节省 mint 时的gas fee 也在逐步推广
+			- 时间：2022-02-12
+			- 原理：
+				- 在连续区间的 token 内，只会存储第一个 token 的 owner。如下图所示，Alice mint 了3个 token，合约只会在 100 的token 上存储 owner，节省了 2 个 存储费用。
+				- ![image.png](../assets/image_1683477726880_0.png)
+	- 权益相关
+		- [ERC-4400: EIP-721 Consumable Extension](https://eips.ethereum.org/EIPS/eip-4400)
+		  collapsed:: true
+			- 时间：2021-10-30
+			- 除了 ERC-721 中规定的所有权，该提案标准化了消费者角色，可以实现自定义角色
+				- 元宇宙中的土地和其他数字资产
+				- 基于 NFT 的质押
+				-
+			- ```solidity
+			  event ConsumerChanged(address indexed owner, address indexed consumer, uint256 indexed tokenId);
+			  
+			  function consumerOf(uint256 _tokenId) view external returns (address);
+			  function changeConsumer(address _consumer, uint256 _tokenId) external;
+			  ```
+		- [ERC-4907: Rental NFT, an Extension of EIP-721 (ethereum.org)](https://eips.ethereum.org/EIPS/eip-4907)
+		  collapsed:: true
+			- 时间：2022-03-11
+			- 增加了有时间限制的角色权限，可以用于 NFT 租赁
+			- ```solidity
+			  event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires);
+			  
+			  function setUser(uint256 tokenId, address user, uint64 expires) external;
+			  function userOf(uint256 tokenId) external view returns(address);
+			  function userExpires(uint256 tokenId) external view returns(uint256);
+			  ```
+		- [ERC-5380: ERC-721 Entitlement Extension (ethereum.org)](https://eips.ethereum.org/EIPS/eip-5380)
+		  collapsed:: true
+			- 时间：2022-03-11
+			- 可以将 token 授权给某用户在某个合约的权限
+			- ```solidity
+			  event EntitlementChanged(address indexed user, address indexed contract, uint256 indexed tokenId);
+			  
+			  function entitle(address user, address contract, uint256 tokenId) external;
+			  function maxEntitlements(address contract, uint256 tokenId) external view (uint256 max);
+			  function entitlementOf(address user, address contract, uint256 tokenId) external view returns (uint256 amt);
+			  ```
+		- [ERC-5585: ERC-721 NFT Authorization (ethereum.org)](https://eips.ethereum.org/EIPS/eip-5585)
+		  collapsed:: true
+			- 时间：2022-08-15
+			- 状态：评审中
+			- 应用层协议，分离了所有权和版权，提高商业价值
+			- ```solidity
+			  struct UserRecord {
+			      address user;
+			      string[] rights;
+			      uint256 expires
+			  }
+			      
+			  event authorizeUser(uint256 indexed tokenId, address indexed user, string[] rights, uint expires);
+			  event updateUserLimit(unit256 userLimit);
+			  
+			  function getRights() external view returns(string[]);
+			  function authorizeUser(uint256 tokenId, address user, uint duration) external;
+			  function authorizeUser(uint256 tokenId, address user, string[] rights, uint duration) external;
+			  function extendDuration(uint256 tokenId, address user, uint duration) external;
+			  function updateUserRights(uint256 tokenId, address user, string[] rights) external;
+			  function getExpires(uint256 tokenId, address user) external view returns(uint);
+			  function getUserRights(uint256 tokenId, address user) external view returns(string[]);
+			  function updateUserLimit(unit256 userLimit) external onlyOwner;
+			  function updateResetAllowed(bool resetAllowed) external onlyOwner;
+			  function checkAuthorizationAvailability(uint256 tokenId) public view returns(bool);
+			  function resetUser(uint256 tokenId, address user) external;
+			  ```
+		- [ERC-6147: Guard of NFT/SBT, an Extension of ERC-721 (ethereum.org)](https://eips.ethereum.org/EIPS/eip-6147)
+		  collapsed:: true
+			- 时间：2022-12-07
+			- 分离了 NFT 和 SBT 的持有权和转让权，并定义了一个新的可设置到期时间的 "守卫者" 角色 Guard，可使得 NFT 防盗、借贷、租赁、SBT 等更具灵活。
+				- guard 具有强制转移权，在进行 transferFrom 的时候，会查询交易发起方是否是守卫地址
+				- owner 将只有持有权，并没有转移权（即使用权），其他 Dapp 依旧可以查询到此 NFT 的所有者是原用户，但原用户无法驱动其进行transfer，只有当 guard 过期或者移除时，才可以 transfer
+			- ```solidity
+			  struct GuardInfo{
+			    address guard;
+			    uint64 expires;
+			  }
+			  
+			  event UpdateGuardLog(uint256 indexed tokenId, address indexed newGuard, address oldGuard, uint64 expires);
+			      
+			  function changeGuard(uint256 tokenId, address newGuard, uint64 expires) external;
+			  function removeGuard(uint256 tokenId) external;
+			  function transferAndRemove(address from, address to, uint256 tokenId) external;
+			  function guardInfo(uint256 tokenId) external view returns (address, uint64);
+			  ```
+			-
+			-
+			-
+		- [ERC-5753: Lockable Extension for EIP-721 (ethereum.org)](https://eips.ethereum.org/EIPS/eip-5753)
+		  collapsed:: true
+			- 时间：	2022-10-05
+			- 状态：草案
+			- 锁定和解锁 NFT，
+				- NFT 抵押贷款：类似于抵押房产，你可以住在房子里，但不能交易
+				- 锁定门票：避免多次使用
+				- 分期购买：买家收到被锁定的 NFT 就可以立即使用，待尾款支付完毕再解锁
+				- 非托管质押
+				- 共有所有权，例如多个人购买一个昂贵的 NFT，通常使用多签钱包很不方便。如果是用可锁定 NFT，可以将 NFT 存储在一个人的钱包，可以任意使用，转移时再用多签批准
+				- ```solidity
+				  event Lock (address indexed unlocker, uint256 indexed id);
+				  event Unlock (uint256 indexed id);
+				  
+				  function lock(address unlocker, uint256 id) external;
+				  function unlock(uint256 id) external;
+				  function getLocked(uint256 tokenId) external view returns (address);
+				  ```
+		- [ERC-6551: Non-fungible Token Bound Accounts (ethereum.org)](https://eips.ethereum.org/EIPS/eip-6551)
+		  collapsed:: true
+			- 时间：2023-02-23
+			- 状态：草案
+			- 通过注册中心，实现 NFT 绑定其他合约，可以实现
+				- 以角色扮演为主的游戏
+				- 可以组合 ERC-20 和 ERC-721
+				- 投资组合
+				- 会员卡
+			- ![](https://eips.ethereum.org/assets/eip-6551/diagram.png){:height 410, :width 687}
+	- 元数据相关
+	  collapsed:: true
+		- [ERC-4906: EIP-721 Metadata Update Extension (ethereum.org)](https://eips.ethereum.org/EIPS/eip-4906)
+		  collapsed:: true
+			- 时间：2022-03-13
+			- 第三方平台可以根据事件追踪元数据更新
+			- ```solidity
+			  event MetadataUpdate(uint256 _tokenId);
+			  
+			  event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId);
+			  ```
+	- 附加功能
+	  collapsed:: true
+		- [ERC-5007: Time NFT, ERC-721 Time Extension (ethereum.org)](https://eips.ethereum.org/EIPS/eip-5007)
+		  collapsed:: true
+			- 时间：2022-04-13
+			- 状态：等待最终确认
+			- 为 token 增加时间维度，可以实现token 在一定期限内有效
+			- ```solidity
+			  function startTime(uint256 tokenId) external view returns (int64);
+			      
+			  function endTime(uint256 tokenId) external view returns (int64);
+			  ```
+	- 安全性
+		- [ERC-5008: ERC-721 Nonce Extension (ethereum.org)](https://eips.ethereum.org/EIPS/eip-5008)
+		  collapsed:: true
+			- 时间：2022-04-10
+			- 状态：评审中
+			- 为了解决 NFT 市场挂单漏洞（没有取消的订单依然可以成交）
+			- ```solidity
+			  function nonce(uint256 tokenId) external view returns(uint256);
+			  ```
+	- 技术相关
+		- [ERC-4494: Permit for ERC-721 NFTs (ethereum.org)](https://eips.ethereum.org/EIPS/eip-4494)
+		  collapsed:: true
+			- 时间：	2021-11-25
+			- 状态：草案
+			- 基于 [ERC-2612: Permit Extension for EIP-20 Signed Approvals (ethereum.org)](https://eips.ethereum.org/EIPS/eip-2612) ，将 Approve 和 Transfer 合二为一
+			- ```solidity
+			  function permit(address spender, uint256 tokenId, uint256 deadline, bytes memory sig) external;  
+			  function nonces(uint256 tokenId) external view returns(uint256);
+			  function DOMAIN_SEPARATOR() external view returns(bytes32);
+			  
+			  DOMAIN_SEPARATOR = keccak256(
+			    abi.encode(
+			        keccak256('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'),
+			        keccak256(bytes(name)),
+			        keccak256(bytes(version)),
+			        chainid,
+			        address(this)
+			  ));
+			  ```
+			-
+		- [ERC-6047: ERC-721 Balance indexing via Transfer event (ethereum.org)](https://eips.ethereum.org/EIPS/eip-6047)
+		  collapsed:: true
+			- 时间：2022-11-26
+			- 状态：草案
+			- 规定了合约在创建时 mint 的 NFT **必须** emit Transfer 事件，以便数据索引
+				- 2309 向后不兼容，6047 兼容

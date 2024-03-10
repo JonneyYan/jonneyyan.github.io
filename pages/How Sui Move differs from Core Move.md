@@ -1,0 +1,2 @@
+- [How Sui Move differs from Core Move | Sui Docs](https://docs.sui.io/learn/sui-move-diffs)
+-

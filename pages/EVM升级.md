@@ -1,0 +1,13 @@
+- [以太坊硬分叉简史 | 登链社区 | 区块链技术社区 (learnblockchain.cn)](https://learnblockchain.cn/article/1024#%E6%8B%9C%E5%8D%A0%E5%BA%AD%20(Byzantium)%E2%80%94#4,370,000)
+- # Byzantium
+	- 4,370,000
+	- [EIP 100](https://learnblockchain.cn/docs/eips/eip-100.html): 将难度调整更改为包括叔块在内的目标平均区块时间
+	- [EIP 140](https://learnblockchain.cn/docs/eips/eip-140.html): 恢复指令
+	- [EIP 196](https://learnblockchain.cn/docs/eips/eip-196.html): 对椭圆曲线 alt_bn128 上的加法和纯量乘法 (addition and scalar multiplication) 预编译合同
+	- [EIP 197](https://learnblockchain.cn/docs/eips/eip-197.html): 对椭圆曲线 alt_bn128 上的最佳配对 (optimal ate pairing) 预编译合同
+	- [EIP 198](https://learnblockchain.cn/docs/eips/eip-198.html): 模幂
+	- [EIP 211](https://learnblockchain.cn/docs/eips/eip-211.html): 新操作码：RETURNDATASIZE 和 RETURNDATACOP
+	- [EIP 214](https://learnblockchain.cn/docs/eips/eip-214.html): 新操作码 STATICCALL
+	- [EIP 649](https://learnblockchain.cn/docs/eips/eip-649.html): 延迟大都会难度炸弹以及减少区块奖励
+	- [EIP 658](https://learnblockchain.cn/docs/eips/eip-658.html): 在收据中嵌入交易状态码
+-

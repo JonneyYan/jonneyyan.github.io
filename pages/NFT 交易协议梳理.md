@@ -1,0 +1,43 @@
+-
+- Seaport Protocol/Wyvern protocol
+- Why Opensea Moved To Seaport Protocol?
+-
+- # 基本原理
+	- 链下订单薄 + 链上撮合
+		-
+- # Wyvern protocol
+	- OpenSea 之前的版本在使用，是一个通用的 DEX 交易协议，可以实现多种资产的交易
+	- 流程
+		- Registry 注册： 用户调用 Register 合约进行注册
+		- 构造订单：预售授权 ERC20 或ERC721 → 签名订单（EIP-712） → 保存订单薄
+		- 撮合订单：解构订单参数 → 验证签名 → 转移token
+	- 问题：
+		- 缺少维护
+		- 不是针对 OS ，有大量资源浪费
+		- gas 消耗多
+		- 不支持代币购买 NFT
+- # Seaport Protocol
+	- 特性
+		- 支持批量订单
+		- 支持不同币种
+		- 混合支付
+		- 内联汇编减少 gas
+	- 基本原理
+		- 提议（Offer）：我愿意给出什么
+		- 对价（Consideration）：我愿意 用什么换
+		- 订单模型
+			- Order + 签名
+			- Order
+				- offer 和 consideration：买卖双方的地址
+				-
+- # BlurExchange
+	- ## 特点
+		- 预言机签名：可以实现链下取消
+		- 批量签名： merkle tree 实现
+		- 资金池：ETH → WETH
+		- Bid：对 collections 出价，取消不用 gas fee
+	- ## 合约架构
+		- BlurExchange：主合约，负责交易的执行。
+		- PolicyManager：订单交易策略管理者。
+		- MatchingPolicy：订单交易策略，负责判断买单、卖单是否可以匹配
+		- ExecutionDelegate：负责具体的转移代币的逻辑。

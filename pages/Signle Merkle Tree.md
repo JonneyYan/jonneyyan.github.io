@@ -1,0 +1,131 @@
+- # **Merkle tree（默克尔树）**
+  title:: Signle Merkle Tree
+- 默克尔树首先计算叶子节点的hash值，然后将相邻两个节点的哈希进行合并，合并完成后计算这个字符串的哈希值，直到根节点为止，如果是单个节点，可以复制单节点的哈希，然后合并哈希再重复上面的过程。
+- The Merkle tree first calculates the hash value of the leaf node, and then merges the hashes of two adjacent nodes. After the merge is completed, the hash value of the string is calculated until the root node. If it is a single node, you can copy the single node. The hash of the node, then merge the hash and repeat the above process.
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-17-35.png?version=1&modificationDate=1666840662000&api=v2)
+- **Merkle tree用于保证区块中交易的不可篡改性(Merkle tree is used to ensure the immutability of transactions in blocks)**
+- **![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-18-40.png?version=1&modificationDate=1666840727000&api=v2)**
+- **Merkle tree用于blockchain pruning (Merkle tree for blockchain pruning)**
+- **用于矿池协议 Stratum protocol (For mining pool protocol: Stratum protocol)**
+- **用于Simplified Payment Verification (SPV) (For Simplified Payment Verification)**
+- SPV钱包节点无需下载区块链完整数据，而只需下载区块链的每块不包含交易的头部数据，区块体保存了完整的交易信息，而交易信息需要的存储量大部分都是交易头的千倍以上。所以，如果只保存交易头，就可以极大的减少本地客户端存储的区块链信息。
+- The SPV wallet node does not need to download the complete data of the blockchain, but only needs to download the header data of each block of the blockchain without including the transaction header data. The block body stores the complete transaction information, and most of the storage required for the transaction information is More than a thousand times the trading head. Therefore, if only the transaction header is saved, the blockchain information stored by the local client can be greatly reduced.
+- -
+- 在验证某一个交易真实性的时候，SPV钱包节点只需要把该交易哈希值向网络中连接的全节点（Full Node: 同步了全部区块链数据的节点）发起询问; (When verifying the authenticity of a transaction, the SPV wallet node only needs to ask the full node (Full Node: the node that has synchronized all blockchain data) connected in the network for the hash value of the transaction;)
+	- 网络里面的全节点只需要回复最小量必要数据给SPV钱包，即可验证交易真实性；(All nodes in the network only need to reply the minimum necessary data to the SPV wallet to verify the authenticity of the transaction;)
+	- 如果SPV钱包不信任提供交易验证数据的全节点，还可以同时发起多个全节点的询问，来确保交易验证的最大可靠性。(If the SPV wallet does not trust the full node that provides transaction verification data, it can also initiate multiple full node queries at the same time to ensure the maximum reliability of transaction verification.)
+- Request： 在比特币客户端收到merkle block message之后，要执行下面的步骤：（After the Bitcoin client receives the merkle block message, it performs the following steps:）
+- -
+- 找到包含该交易的区块 Find the block that contains the transaction
+	- 检查该区块是否是整个网络中最长链条里面的 Check if the block is in the longest chain in the entire network
+	- 取出所有交易生成merkle tree，利用getProof方法得到该交易的验证路径 Take out all transactions to generate a merkle tree, and use the getProof method to get the verification path of the transaction
+	- 将该验证路径发送回请求源 Send that verification path back to the request source
+- Response：SPV得到响应之后，要做如下验证：After the SPV gets a response, do the following verifications:
+- -
+- 同步区块链，确保是整个网络中最长的一条 Synchronize the blockchain to ensure it is the longest chain in the entire network
+	- 先拿到merkle root去区块链中查找，确保该merkle root hash是在链条中 First get the merkle root and search in the blockchain to make sure that the merkle root hash is in the chain
+	- 利用拿到的验证路径，再进行一次merkle校验，确保验证路径全部合法 Using the obtained verification path, perform another merkle check to ensure that the verification paths are all legal
+- 如下图所示，假如一个区块包含了Ta，Tb，Tc，Td，Te，Tf，Tg，Th等8个交易，而SPV钱包发起了对交易Td真实性的查询。
+- 在默克尔树里面可以快速计算得到各个层级的哈希值，直到默克尔树根的哈希值。
+- 然而被询问的全节点，无需传输整个梅克尔树的节点数据，而只需要传回给SPV钱包四个哈希值：Td, Hc, Hab, Hefgh。也就是说减少了一半的数据量传输。
+- 所需要传输的验证数据的个数等同于默克尔树的高度(从底部哈希值开始计算）: ** y = log2(N) + 1,  4 = log2(8) + 1**
+- As shown in the figure below, if a block contains 8 transactions including Ta, Tb, Tc, Td, Te, Tf, Tg, Th, etc., and the SPV wallet initiates a query on the authenticity of the transaction Td.
+- In the Merkle tree, the hash value of each level can be quickly calculated until the hash value of the root of the Merkle tree.
+- However, the queried full node does not need to transmit the node data of the entire Merkle tree, but only needs to send back to the SPV wallet four hash values: Td, Hc, Hab, Hefgh. That is to say, the amount of data transferred is reduced by half.
+- The number of verification data that needs to be transmitted is equal to the height of the Merkle tree (calculated from the bottom hash value): y = log2(N) + 1, 4 = log2(8) + 1
+- **![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-22-10.png?version=1&modificationDate=1666840937000&api=v2)**
+- # Sparse Merkle Tree
+- Spare Merkle Tree 只是一个 Merkle Tree，它存储了叶子节点中数据的索引。 如果一条数据不存在，则相应的叶节点将为空。 在这种情况下，我们可以很容易地证明某些数据在 SMT 中不存在。
+- 因此，与 MT 相比，使用 SMT，我们可以证明树中数据的存在和不存在。
+- 稀疏 Merkle 树类似于标准 Merkle 树，不同之处在于所有包含的数据都被索引，并且每个数据都放置在与该数据的索引对应的叶子上。它的大小预先就固定。
+- Spare Merkle Tree is just a Merkle Tree that stores the index of the data in the leaf node. If a piece of data doesn't exist, that corresponding leaf node will be null. In this case we can easily prove that certain data doesn't exist in the SMT.
+- So comparing to MT, using SMT, we can prove both existence and non-existence of data in the tree.
+- A sparse Merkle tree is similar to a standard Merkle tree, except that all contained data is indexed, and each data is placed on a leaf corresponding to that data's index. Its size is fixed in advance.
+- ## 固定大小 fixed size
+- Ethereum的Transaction merkle tree, 它的大小是由transition多少来决定的，动态、不固定的。 Ethereum's Transaction merkle tree, its size is determined by the number of transitions, dynamic and not fixed.
+- 如果我们要用来存预先就知道有多少数量且数量不会改变的东西的话，用一个固定大小的树来存就非常合理了。 If we're going to store something that we know in advance and the number won't change, it makes sense to use a fixed-size tree to store it.
+- 像Account 数量：Ethereum 地址长度20 bytes，表示有2¹⁶⁰ 个不同的地址，即2¹⁶⁰ 个Account。Ethereum 的account 就可以用SMT 来存。 (目前2.5亿个). Like the number of Accounts: The length of an Ethereum address is 20 bytes, which means that there are 2¹⁶⁰ different addresses, that is, 2¹⁶⁰ Accounts. Ethereum's account can be stored in SMT. (currently 250 million)
+- ## 预设值 default value
+- 不存在的节点填入的值，预先约定好， 可以是0，可以是1，或者其他  The value filled in by the non-existing node, pre-agreed, can be 0, can be 1, or other
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-40-53.png?version=1&modificationDate=1666842060000&api=v2)
+- ## **Proof 的大小 Proof size**
+- Ethereum的Transaction merkle tree：根据交易数量大小不同，需要的proof大小也不同 Ethereum's Transaction merkle tree: Depending on the number of transactions, the required proof size is also different
+- SMT：固定大小的proof( fixed size proof)
+- 优化：大部分节点都会是空白节点，也就是预设值，这时候你给我的Merkle Proof 里除了非空白节点，其他是空白节点的，你只要用一个bit 告诉我在这一层要用预设值就好，这样我就能自己补出完整的Merkle Proof 了。
+- Optimization: Most nodes will be blank nodes, which is the default value. At this time, in the Merkle Proof you gave me, except for non-blank nodes, other nodes are blank nodes. You only need to use a bit to tell me to use the preset value in this layer. Just set the value, so I can make up the full Merkle Proof myself.
+- ## **Inclusion & non-inclusion**
+- **Inclusion: SMT 和 Merkle Tree 类似 (SMT is similar to Merkle Tree)**
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-44-51.png?version=1&modificationDate=1666842297000&api=v2)
+- 若Alice需证明自己的一笔交易A属于某一区块，那么只需给出TxA、TxA位于区块中的序号、H(B)、H( H(C) + H(D) )这4个数据即可证明这笔交易是真实存在于该区块中的。因为利用这些数据作为参数，程序可自动计算出H(A)、H( H(A) + H(B) )，并验证H( H( H(A) + H(B) ) + H( H(C) + H(D) ) )是否匹配该区块头中包含的根哈希值。
+- If Alice needs to prove that a transaction A of her own belongs to a certain block, she only needs to give the sequence numbers of TxA and TxA in the block, H(B), H( H(C) + H(D) ) these 4 This data can prove that the transaction actually exists in the block. Because these data are used as parameters, the program can automatically calculate H(A), H( H(A) + H(B) ), and verify that H( H( H(A) + H(B) ) + H( H (C) + H(D) ) ) matches the root hash contained in the block header.
+- **Non-inclusion: 需要的只是一个标准的默克尔证明，证明第三片叶子是null（预设值） (All that is needed is a standard Merkel proof that the third leaf is null (the default))**
+- ![](https://miro.medium.com/max/1204/1*3jte9zF-Jhv_UNRnM29AYw.png)
+- 证明编号为C的NFT没有出现在某一区块中，则只需给出空数据、空数据的序号、H(D)、H( H(A) + H(空) )即可，这就证明了「该交易不存在于该区块」。
+- 因为从逻辑上看，「不存在」是「存在」的一种特殊形式，「不存在」可以被认为是「存在空」，所以证明了「空」存在于C槽位，也就证明了与C相关的交易是不存在的。
+- To prove that the NFT with the number C does not appear in a block, you only need to give the empty data, the serial number of the empty data, H(D), H( H(A) + H(empty) ), which is It is proved that "the transaction does not exist in this block".
+- Because from a logical point of view, "non-existence" is a special form of "existence", and "non-existence" can be regarded as "existence of emptiness", so it is proved that "empty" exists in slot C, which also proves that the same C-related transactions do not exist.
+- 问题(FAQ)：
+- 1. 为什么要用SMT ？ Why use SMT?
+- Ethereum的MPT树设计复杂，实现、使用困难。SMT更加简单 (Ethereum's MPT tree is complex in design and difficult to implement and use. SMT is simpler)
+- SMT可以实现和MPT树的效率差不多 (SMT can achieve the same efficiency as MPT tree)
+- 增加了可以证明non-inclusion的特性 (Added feature that can prove non-inclusion)
+- 2. 为什么Sparse Merkle Tree 可以证明non-inclusion, 但是Merkle Tree不行呢？可不可以在Merkle Tree也证明空呢？(Why SMT can prove non-inclusion, but Merkle Tree cannot? Can it also prove null in Merkle Tree?)
+- SMT可以把命题转换为证明对应位置为null，是因为初始化SMT的时候已经填入了对应null的hash，而MT没有；
+- 如果在MT上证明某个位置为null， hash该用什么呢？
+- SMT can convert the proposition to prove that the corresponding position is null, because the hash corresponding to null has been filled in when SMT is initialized, but MT does not;
+- If it proves that a certain position is null on MT, what should the hash be used for?
+- ## **Hash**
+- **为何需要设计新的hash函数？(Why do we need to design a new hash function?)**
+- 已有Blake2/3和SHA2/3 等hash函数，为何需要研究针对zero-knowledge proof的hash函数——MiMC/Poseidon等等？
+  There are already hash functions such as Blake2/3 and SHA2/3. Why do you need to study hash functions for zero-knowledge proofs - MiMC/Poseidon, etc.?
+- 通常，生成一个 zero-knowledge proof的complexity主要取决于statement中所包含的乘法门数量。因此，新的hash函数应使乘法复杂度最小化，从而简化ZKP生成。(In general, the complexity of generating a zero-knowledge proof depends mainly on the number of multiplication gates contained in the statement. Therefore, the new hash function should minimize the multiplicative complexity, thereby simplifying ZKP generation.)
+- Merkle-tree实现中，需要一个能接受64字节输入的hash函数。64字节为：2个32字节 hash输出。(In the Merkle-tree implementation, a hash function that accepts 64-byte input is required. 64 bytes are: 2 32-byte hash outputs.)
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image-2022-10-27_11-59-46.png?version=1&modificationDate=1666843192000&api=v2)
+- ```
+  GetProof: *Witness.constructBlockWitness
+  ```
+- *WitnessHelper.ConstructGasWitness
+- *WitnessHelper.constructAccountWitness
+- *WitnessHelper.constructNftWitness
+- # 区块链裁剪(Blockchain Pruning)
+## 原理 theory
+- 随着时间的推移，区块链会随着积累越来越多的块而变得越来越大。例如，今天（2021 年 2 月）比特币区块链的大小约为 380GB。**区块链修剪是一种在 Merkle 树的帮助下减少使用空间的方法。通过从不再需要的本地存储中删除使用过的事务（Spent transaction output）。**
+- **我们希望拥有所有数据以进行全面验证和历史记录，但并非P2P网络中的所有节点都需要所有数据。**原始比特币白皮书中提出的区块链修剪方法建议通过使用 Merkle 树从块中修剪（删除）已用（已使用）交易来解决此问题。
+- Over time, the blockchain gets bigger and bigger by accumulating more and more blocks. For example, today (February 2021) the size of the Bitcoin blockchain is about 380GB. Blockchain pruning is a way to reduce space usage with the help of Merkle trees. By removing used transactions (Spent transaction output) from local storage that are no longer needed.
+- We want to have all the data for full verification and history, but not all nodes in a P2P network need all the data. The blockchain pruning method proposed in the original Bitcoin white paper proposes to solve this problem by using Merkle trees to prune (delete) spent (used) transactions from blocks.
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image8.png?version=2&modificationDate=1667039647000&api=v2)
+- 在此示例中，有used (spent) transactions交易 TX1、TX2 和 TX4。我们在这个区块中仍然有未使用的交易 TX3 和 TX5。假设我们对具有完整存档的完整节点不感兴趣，只保留可花费交易的列表。中本聪的提议是从已使用的交易数据中删除区块，并简单地留下验证未使用的交易数据所需的 Merkle 树分支：
+- In this example, there are used (spent) transactions TX1, TX2 and TX4. We still have unused transactions TX3 and TX5 in this block. Suppose we are not interested in full nodes with full archives, only keeping a list of spendable transactions. Satoshi Nakamoto's proposal was to remove blocks from used transaction data and simply leave the Merkle tree branch needed to validate unused transaction data:
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image1.png?version=1&modificationDate=1667039716000&api=v2)
+- 如果我们也花费 TX3，这可能会更清楚：
+- This might be clearer if we also spend TX3:
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image14.png?version=1&modificationDate=1667039738000&api=v2)
+- 现在可以修剪该块以仅包含 TX5 数据，以及该块中另一个 Merkle 树分支 ( 96b8d ) 的哈希：
+- The block can now be pruned to contain only TX5 data, and the hash of another Merkle tree branch ( 96b8d ) in the block:
+- ![](https://confluence.toolsfdg.net/download/attachments/206362508/image10.png?version=1&modificationDate=1667039765000&api=v2)
+- 我们节省存储的交易数量4个： 5 个 ->  1 个， 节省Merkle 树节点6个：9个 ->  3 个。该示例节省了大约 80% 的空间。区块链的时间越长，使用的次数越多，花费的交易就越多。因此可以节省更多空间。
+- We save 4 transactions in storage: 5 -> 1, and save 6 Merkle tree nodes: 9 -> 3. This example saves about 80% space. The longer the blockchain is, the more it is used, and the more transactions are spent. So more space can be saved.
+- ## **裁剪过的节点不能做的(What a pruned node can't do)**
+- 修剪过的比特币核心节点（从 0.21.0 版开始）不能做三件事：(A pruned Bitcoin Core node (as of version 0.21.0) cannot do three things:)
+- 为新启动的节点提供历史块。(Serve historical blocks to new nodes that are trying to bootstrap.)
+- 导入更多地址后重新扫描旧钱包交易。(Rescan for old wallet transactions after importing more addresses.)
+- 用于检索任意事务的RPC调用getrawtransaction。 (The `getrawtransaction` RPC for retrieving arbitrary transactions.)
+- 验证（以及一般的安全性）不受影响。
+- Validation (and security in general) are unaffected.
+- ## **裁剪在比特币中的实现(The implementation of pruning in Bitcoin)**
+- 从比特币核心 v0.8.0 开始，the validation database ("chainstate" or "UTXO set", or "account balance sheet")与区块链分离。当一个新块进入时，它的效果（删除花费的输入和添加输出）将应用于数据库。这意味着块仍然像以前一样被下载和验证，但之后它们不再用于验证。块仍然存储在磁盘上，以便将它们发送到正在同步的其他节点，或重新扫描旧事务。
+- 从 Bitcoin Core v0.11.0 开始，它也可以在真正的修剪模式下运行，在这种模式下，磁盘上的块实际上会在一段时间后被删除。
+- 从 v0.12 开始，可以在修剪模式下运行时使用钱包。
+- 从 v0.14 开始，可以手动修剪（通过发出 RPC 命令而不是让应用程序决定）。
+- 请注意，这些机制都不依赖于比特币白皮书中描述的机制。
+- Since Bitcoin Core v0.8.0, the validation database ("chainstate" or "UTXO set", or "account balance sheet") is separated from the blockchain. When a new block comes in, its effects (removing spent inputs, and adding outputs) are applied to the database. This means blocks are still downloaded and verified like before, but they aren't used for validation anymore afterwards. Blocks are still stored on disk in order to send them to other nodes that are synchronizing, or to rescan for old transactions.
+- Since Bitcoin Core v0.11.0, it is also possible to run in a true pruned mode, where the blocks on disk are actually deleted after a while. Since v0.12 it is possible to use the wallet while running in pruning mode. Since v0.14 it is possible to manually prune (by issuing an RPC command rather than have the application decide).
+- Note that neither of these mechanisms rely on the mechanism described in the Bitcoin whitepaper.
+- # Reference Material
+- [https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf](https://bitcoin.org/files/bitcoin-paper/bitcoin_zh_cn.pdf)
+- [https://medium.com/@kelvinfichter/whats-a-sparse-merkle-tree-acda70aeb837](https://medium.com/@kelvinfichter/whats-a-sparse-merkle-tree-acda70aeb837)
+- [https://medium.com/taipei-ethereum-meetup/sparse-merkle-tree-%E7%9A%84%E5%84%AA%E9%BB%9E%E5%8F%8A%E7%94%A8%E9%80%94-83dc1098ece6](https://medium.com/taipei-ethereum-meetup/sparse-merkle-tree-%E7%9A%84%E5%84%AA%E9%BB%9E%E5%8F%8A%E7%94%A8%E9%80%94-83dc1098ece6)
+- [https://eprint.iacr.org/2020/948.pdf](https://eprint.iacr.org/2020/948.pdf)
+- [https://blog.csdn.net/mutourend/article/details/118157053](https://blog.csdn.net/mutourend/article/details/118157053)
+- [https://medium.com/coinmonks/merkle-trees-concepts-and-use-cases-5da873702318](https://medium.com/coinmonks/merkle-trees-concepts-and-use-cases-5da873702318)
+- [https://bitcoin.stackexchange.com/questions/2983/is-pruning-transaction-history-implemented-in-satoshis-bitcoin-client](https://bitcoin.stackexchange.com/questions/2983/is-pruning-transaction-history-implemented-in-satoshis-bitcoin-client)

@@ -1,0 +1,2 @@
+- Adi Shamir 的秘密共享是一种加密算法，它允许不同的各方通过持有股份来共同共享单个秘密的所有权。原始秘密只能通过使用最小数量的共享来重建，这允许不同的各方进行合作，而无需完全信任彼此。
+- [Shamir 的秘密共享密码算法简介 | HackerNoon](https://hackernoon.com/zh/shamirs-%E7%A7%98%E5%AF%86%E5%85%B1%E4%BA%AB%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B)

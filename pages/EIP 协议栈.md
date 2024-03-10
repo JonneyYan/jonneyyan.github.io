@@ -1,0 +1,1 @@
+- TODO [ERC-2098: Compact Signature Representation (ethereum.org)](https://eips.ethereum.org/EIPS/eip-2098)

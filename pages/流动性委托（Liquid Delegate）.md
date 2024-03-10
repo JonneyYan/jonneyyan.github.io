@@ -1,0 +1,93 @@
+- 什么是流动性委托
+	- 广义：
+	  collapsed:: true
+		- 流动性委托是一种数字资产交易策略，其中数字资产持有人将其数字资产委托给流动性提供者，以便提高数字资产的流动性和交易效率。在数字资产市场上，流动性委托通常与自动化流动性协议（AMM）或中心化交易所配合使用。
+			- 在 **#AMM** 中，流动性提供者将数字资产存入流动性池中，并以池中数字资产的数量作为流动性提供者的贡献度量。交易者可以使用流动性池中的数字资产进行交易，交易时将根据预设的算法自动计算交易价格和池子的价格曲线，以确保交易的公正性和效率。流动性提供者通过向流动性池中提供数字资产并获得一定比例的池子手续费的方式获得收益。
+			- 在**中心化交易所**中，流动性提供者将其数字资产委托给交易所，并以数字资产的数量作为流动性提供者的贡献。交易者可以在交易所上直接进行数字资产交易，而流动性提供者则从交易所获得一定比例的交易手续费作为收益。
+	- 狭义（NFT）：
+		- 流动性委任 （Liquid Delegate，LD），提供**无需信任**的方式，让你可以**交易**「空投申领权」 ，NFT 持有者无需承担清算或是租赁风险 （保证可以归还）。
+	- 应用场景
+		- NFT 租赁
+			- #[[ERC-4907 可租赁 ERC-721]] : ERC-721 + permissions
+			- #[[ERC-5006 可租赁 ERC1155]] : ERC-1155  +permissions
+		- 空投申领
+		- DAO
+		- 游戏道具
+- delegate.cash
+	- 一句话概括：delegate.cash 提供了一个安全的**钱包委托方案**，用户可以将冷钱包的所有权进行抽象（钱包、合约、NFT），然后委托给热钱包，然后用热钱包与 DApp 交互。还提供了一个“**NFT 流动性委托 (LD)**” 方案，用户可以将 NFT 权益打包，LD NFT 可以进行交易。
+	- 钱包委托
+		- 分类（权限粒度）：
+		- ![image.png](../assets/image_1682617071341_0.png)
+		- 在用项目：[Projects Using Delegate Cash - delegate.cash](https://docs.delegate.cash/delegatecash/projects-using-delegate-cash)
+			- Punks Club
+			- Apes Club
+			- Artblocks
+		- ![](https://1774383748-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FKMp3PwjpKKfLzakTeUUs%2Fuploads%2FDUOlcwvMoxDCF84lxZ8R%2Fflow.jpg?alt=media&token=38f44cfd-7f88-4ec8-a2c8-f11ffabbd725){:height 573, :width 727}
+		- 合约
+			- 仓库：[delegatecash/delegation-registry (github.com)](https://github.com/delegatecash/delegation-registry)
+		- SDKs
+			- Solidity
+				- 0x00000000000076a84fef008cdabe6409d2fe638b
+				- [IDelegationRegistry.sol - delegate.cash](https://docs.delegate.cash/delegatecash/technical-documentation/delegation-registry/idelegationregistry.sol)
+				- ```solidity
+				  /// WRITE ///
+				  function delegateForAll(address delegate, bool value) external;
+				  function delegateForContract(address delegate, address contract_, bool value) external;
+				  function delegateForToken(address delegate, address contract_, uint256 tokenId, bool value) external;
+				  function revokeAllDelegates() external;
+				  function revokeDelegate(address delegate) external;
+				  function revokeSelf(address vault) external;
+				  
+				  /// READ ///
+				  function getDelegationsByDelegate(address delegate) external view returns (DelegationInfo[] memory);
+				  function getDelegatesForAll(address vault) external view returns (address[] memory);
+				  function getDelegatesForContract(address vault, address contract_) external view returns (address[] memory);
+				  function getDelegatesForToken(address vault, address contract_, uint256 tokenId) external view returns (address[] memory);
+				  function checkDelegateForAll(address delegate, address vault) external view returns (bool);
+				  function checkDelegateForContract(address delegate, address vault, address contract_) external view returns (bool);
+				  function checkDelegateForToken(address delegate, address vault, address contract_, uint256 tokenId) external view returns (bool);
+				  ```
+				-
+			- JS-SDK
+				- ```shell
+				  npm install --save delegatecash
+				  ```
+				- ```javascript
+				  const dc = new DelegateCash();
+				  //
+				  const delegate = "0x0000000000000000000000000000000000000003";
+				  const vault = "0x0000000000000000000000000000000000000001";
+				  
+				  const isDelegateForAll = await dc.checkDelegateForAll(delegate, vault);
+				  const delegatesForAll = await dc.getDelegatesForAll(vault);
+				  await dc.delegateForAll(delegate, true);
+				  await dc.revokeAllDelegates();
+				  ```
+			- Embeddable Components
+				- ![image.png](../assets/image_1681893086632_0.png){:width 354, :height 175}
+	- NFT 流动性委托 (LD)
+		- 将NFT 的委托权限打包成 LD NFT，可以实现：
+			- LD 可以在 NFT 市场交易
+			- LD Holder 可以获得委托权（钱包委托中提到的 NFT 委托）
+			- LD Holder 可以 Burn LD ，将 NFT 返还给 NFT Owner
+		- 场景：
+			- 领空投
+			- 票务
+			- 通行证租赁
+			- 知识产权
+		- 合约
+			- [delegatecash/liquid-delegate (github.com)](https://github.com/delegatecash/liquid-delegate)
+			- ![image.png](../assets/image_1681971384889_0.png)
+	- 总结
+		- 不改变所有权
+		- 用注册表的方式保存委托关系
+		- 需要第三方支持
+		- 拓展了 NFT 使用场景，抽离了所有权和使用权
+- Binance NFT 赋能
+	- 当前，Binance NFT 实现了将用户拥有的 NFT **所有权**转移给 Binance，从而提高了 NFT 的价值流动效率。然而，这也意味着用户失去了 NFT 的使用权。使用 LD，用户可以在中心化交易所挂单的同时，在区块链上享受 NFT 的各种使用场景，如领取空投、参与治理等。为用户提供了更加灵活和丰富的 NFT 使用方式。
+	- ![image.png](../assets/image_1681975881544_0.png){:height 409, :width 749}
+	-
+- 参考文档
+  id:: 643e4459-5a1a-4daa-96f0-11d59e3f1264
+	- [Overview - delegate.cash](https://docs.delegate.cash/delegatecash/)
+	- [delegatecash/delegation-registry (github.com)](https://github.com/delegatecash/delegation-registry)

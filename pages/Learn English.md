@@ -1,0 +1,19 @@
+- Basic tips
+	- Leaning English
+	  Tips
+	- Keep In Mind
+	- Thinking is the only way
+	- Time != success
+	- Play Jump Swim
+		- Play with it
+		- Don’t  be afraid. Don’t be shy .Just try, Jump in mistake. reservations
+		- immerse
+	- 30 minutes  role
+	- feedback
+	- life style. enjoy it
+	-
+	-
+	-
+-
+-
+-
