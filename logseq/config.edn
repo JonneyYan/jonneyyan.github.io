@@ -48,7 +48,7 @@
  ;; Set Bullet indentation when exporting
  ;; default option: tab
  ;; Possible options are for `:sidebar` are
- ;; 1. `:eight-spaces` as eight spaces
+ ;; 1. `:eight-spaces` as eight spacespublishing
  ;; 2. `:four-spaces` as four spaces
  ;; 3. `:two-spaces` as two spaces
  ;; :export/bullet-indentation :tab
@@ -233,7 +233,7 @@
  :feature/enable-whiteboards? true
  :graph/settings {:builtin-pages? true, :journal? false}
  :default-home {:page "首页"}
- :publishing/all-pages-public? true
+ :publishing/all-pages-public? false
  :editor/logical-outdenting? false
  :editor/preferred-pasting-file? true
  :ui/show-full-blocks? true
