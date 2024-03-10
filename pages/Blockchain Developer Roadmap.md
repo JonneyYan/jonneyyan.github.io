@@ -1,4 +1,4 @@
-icon:: https://bitcoin.design/assets/images/guide/getting-started/visual-language/bitboy-2011@2x.png
+icon:: ⛓
 
 - Blockchain Basic Knowledge
   collapsed:: true
