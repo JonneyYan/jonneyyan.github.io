@@ -2,4 +2,3 @@
   title:: ⚓️ Developer Roadmap
 - [[🐭 Golang Developer Roadmap]]
 - [[⛓ Blockchain Developer Roadmap]]
-- [[road]]
