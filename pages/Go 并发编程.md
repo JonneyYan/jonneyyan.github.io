@@ -5,7 +5,6 @@
 		- Store(interface{})
 		- Swap(interface{}) 存储新值，返回旧值
 	- 案例
-	  collapsed:: true
 		- ```go
 		  package main
 		  
