@@ -1,4 +1,4 @@
-icon:: 🚏🗺️
+icon:: 🗺️
 
 - [[Blockchain Developer Roadmap]]
   title:: ⚓️ Developer Roadmap
