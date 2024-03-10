@@ -1,3 +1,5 @@
+icon:: https://bitcoin.design/assets/images/guide/getting-started/visual-language/bitboy-2011@2x.png
+
 - Blockchain Basic Knowledge
   collapsed:: true
 	- #[[Blockchain 基本概念]]
