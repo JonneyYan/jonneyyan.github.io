@@ -9,8 +9,8 @@
 					- `currentRewardsPerToken = accumulatedRewardsPerToken + elapsed * rate  / totalStaked`
 				- 计算**用户奖励**：
 					- `currentUserRewards =accumulatedUserRewards +userStake * (userRecordedRewardsPerToken - currentRewardsPerToken)`
-				-
 		- ### 代币化质押
+			- 将质押和 ERC20 结合，
 		- ### ERC4626 代币化金库
 		-
 -
