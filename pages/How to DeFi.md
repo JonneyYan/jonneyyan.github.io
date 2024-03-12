@@ -5,7 +5,7 @@
 			- 允许用户`质押`   ==stakingToken==，并获得一个==rewardsToken==，用户必须==领取（Claim）==这个 ==rewardsToken==
 			- 基本原理：
 				- 设定奖励间隔和奖励数量
-				- **单个代币可获得的奖励**，每次合约
+				- **单个代币可获得的奖励**，每次合约发生交易时，更新这个值
 					- `currentRewardsPerToken = accumulatedRewardsPerToken + elapsed * rate  / totalStaked`
 				-
 				-
