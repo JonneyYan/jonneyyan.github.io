@@ -52,7 +52,7 @@ icon:: ⛓
 		- dYdX
 		- LoanScan (聚合器)
 	- 交易
-		- [[Uniswap]]
+		- [[Uniswap 原理]]
 		- Curve
 	- 预测市场
 		- Augur
