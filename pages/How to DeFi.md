@@ -7,7 +7,8 @@
 				- 设定奖励间隔和奖励数量
 				- **单个代币可获得的奖励**，每次合约发生交易时，更新这个值
 					- `currentRewardsPerToken = accumulatedRewardsPerToken + elapsed * rate  / totalStaked`
-				-
+				- 计算**用户奖励**：
+					- `currentUserRewards =accumulatedUserRewards +userStake * (userRecordedRewardsPerToken - currentRewardsPerToken)`
 				-
 		- ### 代币化质押
 		- ### ERC4626 代币化金库
