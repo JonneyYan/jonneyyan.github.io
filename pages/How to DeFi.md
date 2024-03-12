@@ -5,7 +5,9 @@
 			- 允许用户`质押`   ==stakingToken==，并获得一个==rewardsToken==，用户必须==领取（Claim）==这个 ==rewardsToken==
 			- 基本原理：
 				- 设定奖励间隔和奖励数量
-				- 单个代币
+				- 单个代币可获得的奖励：`currentRewardsPerToken = accumulatedRewardsPerToken + elapsed * rate  / totalStaked`
+				-
+				-
 		- ### 代币化质押
 		- ### ERC4626 代币化金库
 		-
