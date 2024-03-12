@@ -2,7 +2,8 @@
 - # DeFi 场景和工具
 	- ## 质押 Staking
 		- ### 简单质押
-			- 允许用户`押注`
+			- 允许用户`质押`  一个 ==stakingToken==，并获得一个==rewardsToken==，用户必须==领取（Claim）==这个 ==rewardsToken==
+			-
 		- ### 代币化质押
 		- ### ERC4626 代币化金库
 		-
