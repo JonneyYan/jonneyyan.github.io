@@ -93,7 +93,7 @@
 					- 第三方撮合：利率限制同直接报价，只不过调用方不同
 						- ![image.png](../assets/image_1687283924869_0.png)
 				- 如果过了 auctionDuration 个区块还没有接手，放贷人可以选择清算，扣押该资产
-					- ![image.png](../assets/image_1687283950326_0.png)
+					- ![image.png](../assets/image_1687283950326_0.png){:height 519, :width 507}
 - ## 交易相关方法
 	- Blend 除了借款，还提供了交易相关的功能
 	- ### 先买后付（Buy Now Pay Later (BNPL) ）
