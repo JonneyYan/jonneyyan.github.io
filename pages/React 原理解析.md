@@ -1,3 +1,4 @@
-# 基本概念
+- [启动过程 (7km.top)](https://7km.top/main/bootstrap/)
+- # 基本概念
 - # 核心运行原理
 - # 状态管理
