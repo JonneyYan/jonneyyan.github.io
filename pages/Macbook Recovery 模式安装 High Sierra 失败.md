@@ -1,5 +1,6 @@
+- [[FIXED] macOS Sierra "An error occurred while preparing the installation." Error. Sierra Recovery is Broken! (mrmacintosh.com)](https://mrmacintosh.com/fixed-an-error-occurred-while-preparing-the-installation-macos-sierra-recovery-error/)
 - 现象：
-	-
+	- ![image.png](../assets/image_1710427059102_0.png){:height 186, :width 511}
 - 原因：安装包中的 `InstallESD.dmg` 文件出错，导致安装失败
 - ```
   *
