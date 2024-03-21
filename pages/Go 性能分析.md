@@ -1,0 +1,3 @@
+- [Golang 性能分析 | 枫叶居 (keepalive555.github.io)](https://keepalive555.github.io/2020/09/20/Golang%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/)
+- [Go 大杀器之性能剖析 PProf（上） | Go 语言编程之旅 (eddycjy.com)](https://golang2.eddycjy.com/posts/ch6/01-pprof-1/#6123-%E9%80%9A%E8%BF%87%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8)
+- [pprof 性能分析 | Go 语言高性能编程 | 极客兔兔 (geektutu.com)](https://geektutu.com/post/hpg-pprof.html#2-2-%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE)
