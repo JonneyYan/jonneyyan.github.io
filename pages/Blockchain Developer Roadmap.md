@@ -45,7 +45,54 @@ icon:: ⛓
 - # dApps
 	- ## 业务场景
 		- ### DeFi
+			- 稳定币和去中心化储蓄
+			  collapsed:: true
+				- MakerDao
+			- 借贷
+			  collapsed:: true
+				- Compound
+				- Aave
+				- dYdX
+				- LoanScan (聚合器)
+			- 交易
+			  collapsed:: true
+				- [[Uniswap 原理]]
+				- Curve
+			- 预测市场
+			  collapsed:: true
+				- Augur
+			- 合成资产
+			  collapsed:: true
+				- Synthetix
 		- ### NFTs
+			- Marketplace
+			  collapsed:: true
+				- OpenSea
+				- OpenSea Pro
+				- Blur
+				- Looksrare
+				- Exchange protocols
+				  collapsed:: true
+					- Seaport
+					- BlurExchange
+			- NFTFi
+			  collapsed:: true
+				- Load
+				  collapsed:: true
+					- Paraspace
+					- BendDAO
+					- Blend
+				- Staking
+				  collapsed:: true
+					- Sanbox
+					- Ape Staking
+			- Project
+			  collapsed:: true
+				- BAYC
+				- Azuki
+			- Protocol
+			  collapsed:: true
+				- #[[NFT 协议栈]]
 		- ### DAOs
 		-
 	- ## 开发
@@ -128,7 +175,6 @@ icon:: ⛓
 	  collapsed:: true
 		- Synthetix
 - NFT
-  collapsed:: true
 	- Marketplace
 	  collapsed:: true
 		- OpenSea
@@ -160,33 +206,25 @@ icon:: ⛓
 - DAO
 - ZK
 - Security
-  collapsed:: true
 	- #区块链安全集
 	- Tools
-	  collapsed:: true
 		- Slither
 		- Mythril
 		- Securify
 - FE
-  collapsed:: true
 	- framework
-	  collapsed:: true
 		- 基础库
-		  collapsed:: true
 			- ethersjs
 			- web3js
 		- 全能
-		  collapsed:: true
 			- [viem · TypeScript Interface for Ethereum](https://viem.sh/)
 	- Wallet Connector
 	  collapsed:: true
 		- [RainbowKit](https://www.rainbowkit.com/zh-CN)
 		-
 - BE
-  collapsed:: true
 	- geth
 - Read
-  collapsed:: true
 	- #[[How to DeFi]]
 - 工具
   collapsed:: true
