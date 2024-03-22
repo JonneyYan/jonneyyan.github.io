@@ -91,6 +91,9 @@ icon:: ⛓
 		- Gas 限制
 		- 自动异常检测
 - # Layer 2 & Bridge
+	- ## 状态通道
+	- ## Optimistic Rollups
+	- ## Zero Knowledge Proof
 	-
 - # 以太坊基础协议
   collapsed:: true
