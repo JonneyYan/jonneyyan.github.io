@@ -61,9 +61,13 @@ icon:: ⛓
 		- ### Go
 		-
 	- ## 测试
-		- L1 Uint Test
-		- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
-		- [[水龙头]]
+		- ### 测试金字塔
+			- ![image.png](../assets/image_1711096701348_0.png){:height 170, :width 268}
+			- #### Uint Test
+				- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
+				-
+		- ### 相关工具
+			- [[水龙头]]
 		-
 	- ## 运维
 		- ### 节点及服务
