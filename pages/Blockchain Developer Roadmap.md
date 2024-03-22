@@ -90,6 +90,8 @@ icon:: ⛓
 		- 随机数
 		- Gas 限制
 		- 自动异常检测
+- # Layer 2 & Bridge
+	-
 - # 以太坊基础协议
   collapsed:: true
 	- #EIP-712元交易（meta-transactions)
