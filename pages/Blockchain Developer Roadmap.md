@@ -14,13 +14,9 @@ icon:: ⛓
 		- 社区治理
 	- ## 如何工作？
 		- P2P网络
-		- Block
+		- 数据结构：Blockchain
 		- EVM：[[以太坊原理详解]]
 		- 共识机制：[[共识机制和协议汇总]]
-		-
-	-
-	- #[[Blockchain 基本概念]]
-	- #[[以太坊原理详解]]
 	- 工具链
 	  collapsed:: true
 		- truffle
@@ -35,19 +31,9 @@ icon:: ⛓
 	  collapsed:: true
 		- Dune
 	- Cryptograph
-	  collapsed:: true
 		- #《图解密码技术-第三版》
 	- Consens Protocol
-	  collapsed:: true
 		- #共识机制和协议汇总
-	- Blockchain Interoperability
-	  collapsed:: true
-		- Cross Chain
-		- Layer2
-		- Side Chain
-	- Layer 1
-	  collapsed:: true
-		- Sui Network
 - # Smart Contract
   collapsed:: true
 	- Solidity
