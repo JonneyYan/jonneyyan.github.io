@@ -79,7 +79,11 @@ icon:: ⛓
 			- Quicnode
 			- Cosmos
 	- ## 架构
+		- TODO 梳理架构
+			- [The Architecture of a Web 3.0 application (preethikasireddy.com)](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
+			- [Blockchain Development Lecture 6: Dapp Architecture (youtube.com)](https://www.youtube.com/watch?v=KBSq8-LnUDI&t=286s)
 	- ## 安全
+		-
 	-
 - # 以太坊基础协议
   collapsed:: true
