@@ -83,14 +83,10 @@ icon:: ⛓
 			- [The Architecture of a Web 3.0 application (preethikasireddy.com)](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
 			- [Blockchain Development Lecture 6: Dapp Architecture (youtube.com)](https://www.youtube.com/watch?v=KBSq8-LnUDI&t=286s)
 	- ## 安全
-		- 智能合约的安全性
-			- 数据隐私
-				- 任何人都可以访问合约中的状态，即使声明为 private 的状态变量。为了在隐私需要保护的场景下，可以使用 commit-reveal 模式，或者零知识证明，详见[[dApp 隐私保护]]
-			- 随机数
-			- Gas 限制
-			-
-		-
-	-
+		- 数据隐私
+			- 任何人都可以访问合约中的状态，即使声明为 private 的状态变量。为了在隐私需要保护的场景下，可以使用 commit-reveal 模式，或者零知识证明，详见[[dApp 隐私保护]]
+		- 随机数
+		- Gas 限制
 - # 以太坊基础协议
   collapsed:: true
 	- #EIP-712元交易（meta-transactions)
