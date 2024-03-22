@@ -62,6 +62,7 @@ icon:: ⛓
 		-
 	- ## 测试
 		- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
+		- [[水龙头]]
 		-
 	- ## 运维
 		- ### 节点及服务
