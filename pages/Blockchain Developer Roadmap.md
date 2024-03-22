@@ -1,7 +1,6 @@
 icon:: ⛓
 
 - # Basic
-  collapsed:: true
 	- #[[Blockchain 基本概念]]
 	- #[[以太坊原理详解]]
 	- 工具链
