@@ -1,7 +1,6 @@
 icon:: ⛓
 
 - Blockchain Basic Knowledge
-  collapsed:: true
 	- #[[Blockchain 基本概念]]
 	- #[[以太坊原理]]
 	- tool-chain
