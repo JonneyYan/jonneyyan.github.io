@@ -52,15 +52,17 @@ icon:: ⛓
 		- geth
 		- crypto
 - # dApps
-	- ## 模式
+	- ## 业务场景
 		- ### DeFi
 		- ### NFTs
 		- ### DAOs
 		-
 	- ## 开发
 		- ### Go
-		-
+			- geth
+		- ### TheGraph
 	- ## 测试
+	  collapsed:: true
 		- ### 测试金字塔
 			- ![image.png](../assets/image_1711096701348_0.png){:height 170, :width 268}
 			- #### Uint Test
