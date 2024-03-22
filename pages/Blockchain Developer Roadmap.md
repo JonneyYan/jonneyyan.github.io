@@ -84,7 +84,10 @@ icon:: ⛓
 			- [Blockchain Development Lecture 6: Dapp Architecture (youtube.com)](https://www.youtube.com/watch?v=KBSq8-LnUDI&t=286s)
 	- ## 安全
 		- 智能合约的安全性
-			-
+			- 数据隐私
+			- 随机数
+			- 函数可见性
+			- Gas 限制
 		- 数据泄露
 		-
 	-
