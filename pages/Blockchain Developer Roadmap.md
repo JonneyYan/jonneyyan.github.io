@@ -66,6 +66,7 @@ icon:: ⛓
 			- #### Uint Test
 				- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
 			- #### Integration Test
+				- [Puppeteer | Puppeteer (pptr.dev)](https://pptr.dev/)
 				- [MetaMask/test-dapp: The sample dapp used for e2e testing and metamask-extension QA (github.com)](https://github.com/MetaMask/test-dapp)
 				- [Make the tests feel the user's pain - E2E testing for DApps · Devcon Archive: Ethereum Developer Conference](https://archive.devcon.org/archive/watch/5/make-the-tests-feel-the-users-pain-e2e-testing-for-dapps/?tab=YouTube)
 			- #### End-to-End Test
