@@ -20,7 +20,7 @@ icon:: ⛓
 - # Smart Contract
 	- Solidity
 		- #Solidity常见问题集
-		- #[[Solidity Tips 集]]
+		- #[[Solidity By Example]]
 		- #Solidity语法
 		- #Memory
 		- #storage
