@@ -61,6 +61,8 @@ icon:: ⛓
 		- ### Go
 		-
 	- ## 测试
+		- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
+		-
 	- ## 运维
 		- ### 节点及服务
 			- Alchemy
