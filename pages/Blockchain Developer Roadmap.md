@@ -18,17 +18,14 @@ icon:: ⛓
 		- EVM：[[以太坊原理详解]]
 		- 共识机制：[[共识机制和协议汇总]]
 	- 工具链
-	  collapsed:: true
 		- truffle
 		- hardhat
 		- foundry
 	- Storage
-	  collapsed:: true
 		- #什么是去中心化存储？
 		- IPFS
 		- Arweave
 	- Data analysis
-	  collapsed:: true
 		- Dune
 	- Cryptograph
 		- #《图解密码技术-第三版》
@@ -55,6 +52,7 @@ icon:: ⛓
 		- geth
 		- crypto
 - # dApps
+  collapsed:: true
 	- ## 业务场景
 		- ### DeFi
 		- ### NFTs
@@ -94,15 +92,15 @@ icon:: ⛓
 		- Gas 限制
 		- 自动异常检测
 - # Layer 2 & Bridge
+  collapsed:: true
 	- ## 状态通道
 	- ## Optimistic Rollups
 	- ## Zero Knowledge Proof
 	- ## Bridge
-- # 以太坊基础协议
-  collapsed:: true
-	- #EIP-712元交易（meta-transactions)
-	- #[[账户抽象（Account Abstraction）]]
--
+- # 去中心化存储
+	-
+- # 密码学
+	- [[《图解密码技术-第三版》]]
 - Defi
   collapsed:: true
 	- 稳定币和去中心化储蓄
