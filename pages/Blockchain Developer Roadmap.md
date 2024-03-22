@@ -43,9 +43,7 @@ icon:: ⛓
 		- geth
 		- crypto
 - # dApps
-  collapsed:: true
 	- ## 业务场景
-	  collapsed:: true
 		- ### DeFi
 		- ### NFTs
 		- ### DAOs
@@ -110,7 +108,6 @@ icon:: ⛓
   collapsed:: true
 	- [[《图解密码技术-第三版》]]
 - Defi
-  collapsed:: true
 	- 稳定币和去中心化储蓄
 	  collapsed:: true
 		- MakerDao
