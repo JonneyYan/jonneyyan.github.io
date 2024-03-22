@@ -1,36 +1,27 @@
 icon:: ⛓
 
 - # Basic
+  collapsed:: true
 	- ## 定义
+	  collapsed:: true
 		- 一种**分布式**的、**去中心化**的数字**分类账本**技术，通过使用密码学方法确保数据的安全性和完整性
+		  collapsed:: true
 			- 分布式：P2P 网络
 			- 去中心化：没有中央机构控制，由网络中的多个节点通过共识机制共同维护和验证
 			- 存储：数据块通过密码学的哈希函数组成的链式结构
 	- ## 应用
+	  collapsed:: true
 		- 数字货币和支付
 		- 智能合约
 		- 供应链管理
 		- 区块链身份验证
 		- 社区治理
 	- ## 如何工作？
+	  collapsed:: true
 		- P2P网络
 		- 数据结构：Blockchain
 		- EVM：[[以太坊原理详解]]
 		- 共识机制：[[共识机制和协议汇总]]
-	- 工具链
-		- truffle
-		- hardhat
-		- foundry
-	- Storage
-		- #什么是去中心化存储？
-		- IPFS
-		- Arweave
-	- Data analysis
-		- Dune
-	- Cryptograph
-		- #《图解密码技术-第三版》
-	- Consens Protocol
-		- #共识机制和协议汇总
 - # Smart Contract
   collapsed:: true
 	- Solidity
@@ -54,39 +45,52 @@ icon:: ⛓
 - # dApps
   collapsed:: true
 	- ## 业务场景
+	  collapsed:: true
 		- ### DeFi
 		- ### NFTs
 		- ### DAOs
 		-
 	- ## 开发
+	  collapsed:: true
 		- ### Go
+		  collapsed:: true
 			- geth
 		- ### TheGraph
 	- ## 测试
 	  collapsed:: true
 		- ### 测试金字塔
+		  collapsed:: true
 			- ![image.png](../assets/image_1711096701348_0.png){:height 170, :width 268}
 			- #### Uint Test
+			  collapsed:: true
 				- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
 			- #### Integration Test
 			- #### End-to-End Test
+			  collapsed:: true
 				- [Make the tests feel the user's pain - E2E testing for DApps · Devcon Archive: Ethereum Developer Conference](https://archive.devcon.org/archive/watch/5/make-the-tests-feel-the-users-pain-e2e-testing-for-dapps/?tab=YouTube)
 				- [Puppeteer | Puppeteer (pptr.dev)](https://pptr.dev/)
 				- [MetaMask/test-dapp: The sample dapp used for e2e testing and metamask-extension QA (github.com)](https://github.com/MetaMask/test-dapp)
 		- ### 相关工具
+		  collapsed:: true
 			- [[水龙头]]
 	- ## 运维
+	  collapsed:: true
 		- ### 节点及服务
+		  collapsed:: true
 			- Alchemy
 			- Infura
 			- Quicnode
 			- Cosmos
 	- ## 架构
+	  collapsed:: true
 		- TODO 梳理架构
+		  collapsed:: true
 			- [The Architecture of a Web 3.0 application (preethikasireddy.com)](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
 			- [Blockchain Development Lecture 6: Dapp Architecture (youtube.com)](https://www.youtube.com/watch?v=KBSq8-LnUDI&t=286s)
 	- ## 安全
+	  collapsed:: true
 		- 数据隐私
+		  collapsed:: true
 			- 任何人都可以访问合约中的状态，即使声明为 private 的状态变量。为了在隐私需要保护的场景下，可以使用 commit-reveal 模式，或者零知识证明，详见[[dApp 隐私保护]]
 		- 随机数
 		- Gas 限制
@@ -98,8 +102,12 @@ icon:: ⛓
 	- ## Zero Knowledge Proof
 	- ## Bridge
 - # 去中心化存储
-	-
+  collapsed:: true
+	- [[什么是去中心化存储？]]
+	- IPFS
+	- Arweave
 - # 密码学
+  collapsed:: true
 	- [[《图解密码技术-第三版》]]
 - Defi
   collapsed:: true
