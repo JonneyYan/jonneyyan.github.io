@@ -65,7 +65,9 @@ icon:: ⛓
 			- ![image.png](../assets/image_1711096701348_0.png){:height 170, :width 268}
 			- #### Uint Test
 				- [sol-coverage](https://www.npmjs.com/package/@0x/sol-coverage)
-				-
+			- #### Integration Test
+				- [MetaMask/test-dapp: The sample dapp used for e2e testing and metamask-extension QA (github.com)](https://github.com/MetaMask/test-dapp)
+			- #### End-to-End Test
 		- ### 相关工具
 			- [[水龙头]]
 		-
