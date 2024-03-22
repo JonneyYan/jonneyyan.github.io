@@ -1,9 +1,10 @@
 icon:: ⛓
 
-- Blockchain Basic Knowledge
+- # Blockchain Basic Knowledge
+  collapsed:: true
 	- #[[Blockchain 基本概念]]
 	- #[[以太坊原理]]
-	- tool-chain
+	- 工具链
 		- truffle
 		- hardhat
 		- foundry
@@ -23,7 +24,7 @@ icon:: ⛓
 		- Side Chain
 	- Layer 1
 		- Sui Network
-- Smart Contract language
+- # Smart Contract language
   collapsed:: true
 	- Solidity
 		- #Solidity常见问题集
@@ -39,7 +40,7 @@ icon:: ⛓
 	- Go
 		- geth
 		- crypto
-- 以太坊基础协议
+- # 以太坊基础协议
 	- #EIP-712元交易（meta-transactions)
 	- #[[账户抽象（Account Abstraction）]]
 - Defi
